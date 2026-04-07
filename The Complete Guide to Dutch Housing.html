@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete Guide to Dutch Housing — by Rami Al-Hakimi</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F7F4;--card:#FFFFFF;--text:#1C1917;--muted:#78716C;--border:#E7E5E4;--acc:#0D9668;--acc-l:#ECFDF5;--acc-d:#065F46;--acc-hover:#0B8159;--blue:#2563EB;--blue-l:#EFF6FF;--blue-d:#1E40AF;--coral:#EA580C;--coral-l:#FFF7ED;--purple:#7C3AED;--purple-l:#F5F3FF;--purple-d:#5B21B6;--amber:#D97706;--amber-l:#FFFBEB;--red:#DC2626;--red-l:#FEF2F2;--pink:#DB2777;--pink-l:#FDF2F8;--gray-l:#F5F5F4;--shadow-sm:0 1px 2px rgba(0,0,0,.05);--shadow-md:0 4px 6px -1px rgba(0,0,0,.07),0 2px 4px -2px rgba(0,0,0,.05);--shadow-lg:0 10px 15px -3px rgba(0,0,0,.08),0 4px 6px -4px rgba(0,0,0,.04);--radius:12px;--radius-lg:16px;--radius-xl:20px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:80px;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased;}
+
+/* Sticky navigation */
+.sticky-nav{position:sticky;top:0;z-index:100;background:rgba(248,247,244,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.6rem 2rem;transition:all .3s;}
+.sticky-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.sticky-nav .logo{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--text);white-space:nowrap;}
+.sticky-nav .logo span{color:var(--acc);}
+.nav-links{display:flex;gap:.15rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{padding:.35rem .7rem;border-radius:8px;font-size:.7rem;font-weight:500;color:var(--muted);text-decoration:none;white-space:nowrap;transition:all .2s;}
+.nav-link:hover,.nav-link.active{background:var(--acc-l);color:var(--acc-d);}
+
+/* Hero */
+.hero{padding:4rem 2rem 2.5rem;max-width:1060px;margin:0 auto;}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem 1rem;border-radius:100px;background:var(--acc-l);color:var(--acc-d);font-size:.72rem;font-weight:600;margin-bottom:1.2rem;letter-spacing:.02em;}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.hero h1{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;line-height:1.1;margin-bottom:.6rem;letter-spacing:-.03em;}
+.hero h1 em{font-style:normal;color:var(--acc-d);}
+.hero .sub{font-size:1rem;color:var(--muted);max-width:720px;margin-bottom:1.2rem;font-weight:300;line-height:1.7;}
+.hero .author-line{display:flex;align-items:center;gap:.8rem;padding-top:.8rem;border-top:1px solid var(--border);}
+.hero .author-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc-d));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.8rem;}
+.hero .author-info{display:flex;flex-direction:column;}
+.hero .author-name{font-weight:600;font-size:.85rem;}
+.hero .author-meta{font-size:.72rem;color:var(--muted);}
+
+/* General */
+.c{max-width:1060px;margin:0 auto;padding:0 2rem 4rem;}
+h2.st{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;margin:2.5rem 0 .4rem;padding-bottom:.4rem;border-bottom:2px solid var(--acc);letter-spacing:-.01em;}
+h3.sst{font-size:1rem;font-weight:600;margin:1.5rem 0 .3rem;color:var(--acc-d);}
+.sd{color:var(--muted);font-size:.85rem;margin-bottom:1rem;max-width:700px;font-weight:300;}
+p.pr{font-size:.87rem;color:var(--text);line-height:1.72;margin-bottom:1rem;font-weight:300;}
+p.pr strong{font-weight:600;color:var(--acc-d);}
+
+/* TOC */
+.toc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem 2rem;margin:1.5rem 0 2.5rem;box-shadow:var(--shadow-sm);columns:2;column-gap:2rem;}
+.toc h3{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.7rem;column-span:all;}
+.toc ol{padding-left:1.2rem;}
+.toc li{font-size:.82rem;margin-bottom:.3rem;break-inside:avoid;font-weight:400;}
+.toc a{color:var(--blue-d);text-decoration:none;transition:color .2s;}
+.toc a:hover{color:var(--acc);}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;margin-bottom:2rem;}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1rem;box-shadow:var(--shadow-sm);transition:all .3s;}
+.stat:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.stat .n{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;color:var(--acc-d);}
+.stat .l{font-size:.68rem;color:var(--muted);margin-top:.1rem;font-weight:400;}
+
+/* Filter buttons */
+.fb-bar{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem;}
+.fb{padding:.4rem .85rem;border-radius:100px;border:1px solid var(--border);background:var(--card);font-size:.75rem;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;color:var(--muted);font-weight:500;box-shadow:var(--shadow-sm);}
+.fb:hover{border-color:var(--acc);color:var(--acc);box-shadow:var(--shadow-md);}
+.fb.active{background:var(--acc);color:#fff;border-color:var(--acc);box-shadow:0 2px 8px rgba(13,150,104,.3);}
+
+/* Platform cards */
+.grid{display:grid;grid-template-columns:1fr;gap:.7rem;}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.2rem;transition:all .25s;box-shadow:var(--shadow-sm);}
+.pc:hover{border-color:var(--acc);box-shadow:var(--shadow-md);transform:translateY(-1px);}
+.pc.hidden{display:none;}
+.pc .hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.4rem;}
+.pc .hd h3{font-size:.95rem;font-weight:600;}
+.pc .hd .url{font-size:.7rem;color:var(--blue-d);text-decoration:none;font-weight:500;transition:color .2s;}
+.pc .hd .url:hover{color:var(--acc);}
+.tags{display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.4rem;}
+.t{font-size:.62rem;padding:.15rem .5rem;border-radius:100px;font-weight:600;letter-spacing:.01em;}
+.t-agg{background:var(--purple-l);color:var(--purple-d);}.t-src{background:var(--blue-l);color:var(--blue-d);}.t-free{background:var(--acc-l);color:var(--acc-d);}.t-paid{background:var(--amber-l);color:#92400E;}.t-alert{background:var(--pink-l);color:#9D174D;}.t-expat{background:var(--coral-l);color:#9A3412;}.t-social{background:var(--gray-l);color:#44403C;}.t-student{background:var(--red-l);color:#991B1B;}.t-ak{background:#F5F5F4;color:#57534E;}.t-comm{background:var(--amber-l);color:#78350F;}
+.pc .bd{font-size:.8rem;color:var(--muted);margin-bottom:.35rem;line-height:1.5;font-weight:300;}
+.det{font-size:.77rem;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--border);}
+.det .dl{font-weight:600;font-size:.68rem;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.1rem;}
+.det .dv{font-size:.77rem;color:var(--muted);line-height:1.45;font-weight:300;}
+.cat-label{display:inline-block;padding:.25rem .85rem;border-radius:100px;font-size:.72rem;font-weight:600;margin:1.2rem 0 .5rem;letter-spacing:.03em;}
+
+/* Info boxes */
+.ib{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.3rem;margin-bottom:.7rem;box-shadow:var(--shadow-sm);transition:all .25s;}
+.ib:hover{box-shadow:var(--shadow-md);}
+.ib h4{font-size:.88rem;font-weight:600;margin-bottom:.3rem;}
+.ib p,.ib ul{font-size:.82rem;color:var(--muted);line-height:1.55;font-weight:300;}
+.ib ul{padding-left:1.1rem;margin-top:.25rem;}
+.ib li{margin-bottom:.15rem;}
+.ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.7rem;}
+.ig3{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem;}
+
+/* Alert boxes */
+.warn{background:var(--amber-l);border:1px solid #FDE68A;border-radius:var(--radius);padding:1rem 1.2rem;margin:1rem 0;font-size:.8rem;color:#92400E;line-height:1.55;font-weight:400;}
+.warn strong{font-weight:700;color:#78350F;}
+.legal-r{background:var(--red-l);border:1px solid #FECACA;border-radius:var(--radius);padding:.9rem 1.1rem;margin:.65rem 0;font-size:.8rem;color:#991B1B;line-height:1.5;font-weight:400;}
+.legal-g{background:var(--acc-l);border:1px solid #A7F3D0;border-radius:var(--radius);padding:.9rem 1.1rem;margin:.65rem 0;font-size:.8rem;color:var(--acc-d);line-height:1.5;font-weight:400;}
+
+/* Flow diagrams */
+.flow{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.3rem;margin:.8rem 0;box-shadow:var(--shadow-sm);}
+.flow-r{display:flex;align-items:center;justify-content:center;gap:.4rem;flex-wrap:wrap;margin:.6rem 0;}
+.flow-b{padding:.6rem .9rem;border-radius:10px;font-size:.75rem;font-weight:600;text-align:center;min-width:90px;max-width:175px;box-shadow:var(--shadow-sm);}
+.flow-a{font-size:1.1rem;color:var(--muted);font-weight:300;}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:.77rem;margin:.7rem 0;}
+th{padding:.55rem .4rem;font-weight:600;text-align:left;border-bottom:2px solid var(--border);font-size:.72rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);}
+td{padding:.45rem .4rem;border-bottom:1px solid var(--border);font-weight:300;}
+td strong{font-weight:600;}
+.cb{display:inline-block;background:var(--acc);color:#fff;font-size:.62rem;font-weight:700;padding:.12rem .45rem;border-radius:100px;margin-left:.4rem;vertical-align:middle;}
+hr.dv{border:none;border-top:2px solid var(--acc);margin:3rem 0 1rem;opacity:.4;}
+
+/* Footer */
+footer{background:#171412;color:#A8A29E;padding:3rem 2rem;margin-top:3rem;}
+footer .footer-inner{max-width:1060px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;}
+footer .footer-left{display:flex;flex-direction:column;gap:.4rem;}
+footer .footer-name{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;color:#FAFAF9;letter-spacing:-.01em;}
+footer .footer-role{font-size:.78rem;color:#78716C;}
+footer .footer-copy{font-size:.7rem;color:#57534E;margin-top:.5rem;}
+footer .footer-links{display:flex;gap:.8rem;align-items:center;}
+footer .footer-link{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1.1rem;border-radius:100px;border:1px solid #292524;color:#D6D3D1;font-size:.78rem;font-weight:500;text-decoration:none;transition:all .25s;}
+footer .footer-link:hover{border-color:var(--acc);color:var(--acc);background:rgba(13,150,104,.08);}
+footer .footer-link svg{width:15px;height:15px;fill:currentColor;}
+footer .footer-divider{width:100%;border:none;border-top:1px solid #292524;margin:.5rem 0;}
+
+/* Scroll animations */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Responsive */
+@media(max-width:768px){
+.hero h1{font-size:2rem;}
+.hero,.c{padding-left:1.2rem;padding-right:1.2rem;}
+.stats{grid-template-columns:1fr 1fr;}
+.toc{columns:1;}
+footer .footer-inner{flex-direction:column;align-items:flex-start;}
+.sticky-nav{padding:.5rem 1rem;}
+.nav-links{display:none;}
+.ig,.ig3{grid-template-columns:1fr;}
+}
+/* SVG Diagrams */
+.diagram-wrap{margin:1.2rem 0;overflow-x:auto;}
+.diagram-wrap svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.diagram-title{font-size:.78rem;font-weight:600;text-align:center;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.6rem;}
+
+@media(max-width:480px){
+.hero h1{font-size:1.6rem;}
+.stats{grid-template-columns:1fr;}
+.flow-r{flex-direction:column;}
+.flow-a{transform:rotate(90deg);}
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky Navigation -->
+<nav class="sticky-nav">
+<div class="sticky-nav-inner">
+<div class="logo">The Complete Guide to <span>Dutch Housing</span></div>
+<div class="nav-links">
+<a href="#s1" class="nav-link">Market</a>
+<a href="#s2" class="nav-link">Structure</a>
+<a href="#s3" class="nav-link">Social Housing</a>
+<a href="#s4" class="nav-link">Pipeline</a>
+<a href="#s5" class="nav-link">Makelaars</a>
+<a href="#s8" class="nav-link">Platforms</a>
+<a href="#s11" class="nav-link">Legal</a>
+<a href="#s12" class="nav-link">Rights</a>
+<a href="#s14" class="nav-link">2026 Rules</a>
+<a href="#s15" class="nav-link">Strategy</a>
+</div>
+</div>
+</nav>
+
+<div class="hero">
+<div class="hero-badge"><span class="dot"></span> Live research · Updated April 2026</div>
+<h1>The Complete Guide to<br><em>Dutch Housing</em></h1>
+<p class="sub">Everything about housing in the Netherlands in one place: 49 platforms, all aggregators, every makelaar type, the full listing pipeline, business models, legal framework, court cases, tenant rights, the Huurcommissie, 2026 regulatory changes, key laws, 30+ Dutch terms, scraping methods, and strategies for finding a home and building your platform.</p>
+<div class="author-line">
+<div class="author-avatar">RA</div>
+<div class="author-info">
+<span class="author-name">Rami Al-Hakimi</span>
+<span class="author-meta">Comprehensive research · April 2026 · 49 platforms · 15 sections</span>
+</div>
+</div>
+</div>
+
+<div class="c">
+
+<div class="toc">
+<h3>Table of contents — 15 sections</h3>
+<ol>
+<li><a href="#s1">Market overview & key numbers (2026)</a></li>
+<li><a href="#s2">Market structure — social vs. private vs. mid vs. anti-kraak</a></li>
+<li><a href="#s3">Social housing deep dive — WoningNet, DAK, corporations, how to apply</a></li>
+<li><a href="#s4">The full listing pipeline — 4 flow diagrams</a></li>
+<li><a href="#s5">Makelaars — every type of agent explained</a></li>
+<li><a href="#s6">Agent associations — NVM, VBO, Vastgoedpro</a></li>
+<li><a href="#s7">How landlords list properties — step by step</a></li>
+<li><a href="#s8">All 49 platforms — complete directory with filters</a></li>
+<li><a href="#s9">Business models — how each company makes money</a></li>
+<li><a href="#s10">Data infrastructure & technical scraping methods</a></li>
+<li><a href="#s11">Legal framework — laws, court cases, scraping legality</a></li>
+<li><a href="#s12">Tenant rights, key laws & the Huurcommissie</a></li>
+<li><a href="#s13">Dutch terminology, costs, tips & scam prevention</a></li>
+<li><a href="#s14">2026 regulatory changes & market dynamics</a></li>
+<li><a href="#s15">Strategic recommendations for your platform</a></li>
+</ol>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 1 ══════════════════════════════════════ -->
+<hr class="dv" id="s1">
+<h2 class="st">1. Market overview & key numbers (2026)</h2>
+<div class="stats">
+<div class="stat"><div class="n">~350K</div><div class="l">Housing shortage</div></div>
+<div class="stat"><div class="n">€1,700+</div><div class="l">Avg private rent/mo</div></div>
+<div class="stat"><div class="n">3-4×</div><div class="l">Income rule (gross:rent)</div></div>
+<div class="stat"><div class="n">28-32</div><div class="l">Days to sell (avg)</div></div>
+<div class="stat"><div class="n">3-5%</div><div class="l">Above asking (avg)</div></div>
+<div class="stat"><div class="n">92%</div><div class="l">Urbanization rate</div></div>
+<div class="stat"><div class="n">&lt;2%</div><div class="l">Vacancy top cities</div></div>
+<div class="stat"><div class="n">7-15yr</div><div class="l">Social housing wait (AMS)</div></div>
+</div>
+<p class="pr">The Netherlands has a structural housing shortage of ~350,000 homes. Private rents average €1,700+/month nationally, €2,000-2,500+ in Amsterdam. Landlords require 3-4× gross income. Properties receive 20-50 applications within 24 hours — most desirable rentals are gone in 1-2 days. Homes for sale sell in ~28-32 days, often 3-5% above asking. <strong>Key demand drivers:</strong> young professionals priced out of buying, international expats (ASML, Philips, Booking), university students, upgrading families. Hottest areas: Amsterdam Zuidas/Oud-Zuid, Utrecht city center, Eindhoven Strijp-S, The Hague Statenkwartier — all &lt;2% vacancy.</p>
+
+<!-- ══════════════════════════════════════ SECTION 2 ══════════════════════════════════════ -->
+<hr class="dv" id="s2">
+<h2 class="st">2. Market structure</h2>
+<div class="ig">
+<div class="ib"><h4 style="color:var(--blue-d);">Social housing (sociale huur)</h4><p>Regulated rents below €932.93/mo (2026). Managed by woningcorporaties. Allocated via WoningNet using points system (waiting time + search + situation + starter points). 7-15 year waits in Amsterdam. Income ceiling: ~€44K single / ~€49K household. ~75% of NL's 3 million rental homes belong to housing corporations. Must have BSN + legal residency.</p></div>
+<div class="ib"><h4 style="color:var(--coral);">Private sector (vrije sector)</h4><p>Market-rate rents above €932.93/mo. Private landlords, agencies, institutional investors. No waiting lists — speed + profile quality determine success. 3-4× gross income requirement. This is where ALL aggregator platforms operate. Agents often stop reviewing after 20-30 qualified applicants. Some agencies charge landlords a fee; tenant's own agents charge the tenant.</p></div>
+<div class="ib"><h4 style="color:var(--purple-d);">Mid-segment (middenhuur)</h4><p>Between social and free-market (~€880-€1,200/mo). Now regulated by Affordable Rent Act (2024) — extends WWS points system. Institutional investors (Vesteda ~28K units, MVGM) focus here. Some municipalities use lottery (loting) systems. Amsterdam requires housing permit for mid-rent from July 2025.</p></div>
+<div class="ib"><h4 style="color:#5F5E5A;">Anti-kraak (anti-squat)</h4><p>Temporary use of vacant buildings to prevent squatting (illegal since 2010). ~30 agencies (Camelot, Ad Hoc, VPS, Gapph, Villex, Interveste). ~50,000 residents. Rent: €150-€600/mo. ~€150M annual market. Occupiers are "users" not tenants — minimal rights, short notice eviction possible. No children/pets policies common.</p></div>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 3: SOCIAL HOUSING DEEP DIVE ══════════════════════════════════════ -->
+<hr class="dv" id="s3">
+<h2 class="st">3. Social housing deep dive — the complete system</h2>
+<p class="sd">Everything about how social housing works in the Netherlands: the corporations, WoningNet, the DAK app, the points system, how to apply, allocation methods, income limits, and every major woningcorporatie.</p>
+
+<h3 class="sst">What is social housing?</h3>
+<p class="pr">The Netherlands has one of the <strong>largest social housing systems in Europe</strong>. Approximately <strong>30% of all Dutch homes</strong> (~2.3 million units) are owned by woningcorporaties (housing corporations). These are non-profit organizations whose mission is to provide affordable, safe housing to people with lower incomes. They manage everything from construction and maintenance to tenant selection and rent collection. There are approximately <strong>280 woningcorporaties</strong> operating across the country. The system traces back to post-war reconstruction and has been regulated by the Housing Act (Woningwet) since 2015.</p>
+
+<div class="diagram-title">How social housing allocation works</div>
+<div class="diagram-wrap">
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#78716C"/></marker></defs>
+<rect x="20" y="20" width="160" height="60" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="100" y="45" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="600" fill="#1E40AF">Register on</text>
+<text x="100" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#1E40AF">WoningNet / DAK app</text>
+<line x1="180" y1="50" x2="220" y2="50" stroke="#78716C" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="220" y="20" width="160" height="60" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="300" y="45" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="600" fill="#5B21B6">Build waiting time</text>
+<text x="300" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#5B21B6">+ earn points</text>
+<line x1="380" y1="50" x2="420" y2="50" stroke="#78716C" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="420" y="20" width="160" height="60" rx="10" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.5"/>
+<text x="500" y="45" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="600" fill="#9A3412">Respond to listings</text>
+<text x="500" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#9A3412">4+ times/month</text>
+<line x1="580" y1="50" x2="620" y2="50" stroke="#78716C" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="620" y="20" width="160" height="60" rx="10" fill="#ECFDF5" stroke="#0D9668" stroke-width="1.5"/>
+<text x="700" y="45" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="600" fill="#065F46">Attend viewing</text>
+<text x="700" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#065F46">in person / remote</text>
+<line x1="700" y1="80" x2="700" y2="120" stroke="#78716C" stroke-width="1.5" marker-end="url(#ah)"/>
+<text x="400" y="115" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#78716C" font-style="italic">Two allocation paths:</text>
+<rect x="120" y="140" width="250" height="80" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="245" y="165" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="600" fill="#5B21B6">Path A: Wait-time based</text>
+<text x="245" y="183" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#5B21B6">Highest points = gets the home</text>
+<text x="245" y="200" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#78716C">Avg 7-15 years in Amsterdam</text>
+<rect x="430" y="140" width="250" height="80" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+<text x="555" y="165" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="600" fill="#92400E">Path B: Lottery (loting)</text>
+<text x="555" y="183" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#92400E">Random selection — equal chance</text>
+<text x="555" y="200" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#78716C">Even new registrants can win</text>
+<line x1="245" y1="220" x2="245" y2="260" stroke="#78716C" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="555" y1="220" x2="555" y2="260" stroke="#78716C" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="245" y1="260" x2="555" y2="260" stroke="#78716C" stroke-width="1"/>
+<line x1="400" y1="260" x2="400" y2="290" stroke="#78716C" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="270" y="290" width="260" height="70" rx="12" fill="#ECFDF5" stroke="#0D9668" stroke-width="2"/>
+<text x="400" y="318" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="700" fill="#065F46">Accept offer within 48hrs</text>
+<text x="400" y="338" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#065F46">Sign lease → move in</text>
+</svg>
+</div>
+
+<h3 class="sst">Income limits (2026)</h3>
+<div class="ig">
+<div class="ib"><h4>Who qualifies?</h4>
+<ul>
+<li>Single-person households: max gross annual income <strong>€51,537</strong></li>
+<li>Multi-person households: max gross annual income <strong>€56,910</strong></li>
+<li>85% of available social housing must go to people within these limits</li>
+<li>Up to 7.5% can go to people with slightly higher incomes</li>
+<li>Must be legally residing in the Netherlands with a BSN</li>
+<li>Must not own property</li>
+<li>Must be registered with the municipality</li>
+</ul>
+</div>
+<div class="ib"><h4>Rent thresholds (2026)</h4>
+<ul>
+<li>Social housing (sociale huur): base rent up to <strong>€932.93/month</strong></li>
+<li>Mid-market (middenhuur): base rent €932.93 – <strong>€1,228.07/month</strong></li>
+<li>Free sector (vrije sector): above €1,228.07/month</li>
+<li>Rent is determined by the WWS points system, not by market rates</li>
+<li>Landlords cannot charge more than the points-calculated maximum</li>
+</ul>
+</div>
+</div>
+
+<h3 class="sst">Major woningcorporaties (housing corporations)</h3>
+<p class="pr">These are the key players that own and manage social housing across the Netherlands:</p>
+<table>
+<thead><tr><th>Corporation</th><th>City/Region</th><th>Approx. units</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Ymere</strong></td><td>Amsterdam + region</td><td>~84,000</td><td>Largest in Amsterdam. 4 regional offices. Active in renovation + new construction.</td></tr>
+<tr><td><strong>Vestia</strong></td><td>The Hague / Rotterdam</td><td>~78,000</td><td>One of the largest nationally. Survived €2B derivatives scandal (2012).</td></tr>
+<tr><td><strong>Woonstad Rotterdam</strong></td><td>Rotterdam</td><td>~53,000</td><td>Result of merger of municipal companies. Largest in Rotterdam.</td></tr>
+<tr><td><strong>De Alliantie</strong></td><td>Amsterdam / Gooi / Almere</td><td>~55,000</td><td>Active across multiple regions.</td></tr>
+<tr><td><strong>Rochdale</strong></td><td>Amsterdam / Zaanstad</td><td>~40,500</td><td>One of the 6 biggest Amsterdam corporations.</td></tr>
+<tr><td><strong>Eigen Haard</strong></td><td>Amsterdam + region</td><td>~35,000</td><td>First-party verified listings. Lottery-based allocation for some properties.</td></tr>
+<tr><td><strong>Stadgenoot</strong></td><td>Amsterdam</td><td>~32,000</td><td>Active in renovation and student housing.</td></tr>
+<tr><td><strong>De Key (Lieven de Key)</strong></td><td>Amsterdam / Zandvoort / Diemen</td><td>~30,000</td><td>Strong focus on young people and starters.</td></tr>
+<tr><td><strong>Portaal</strong></td><td>Utrecht / Arnhem / Nijmegen</td><td>~50,000</td><td>One of the largest in central Netherlands.</td></tr>
+<tr><td><strong>Woonzorg Nederland</strong></td><td>Nationwide</td><td>~40,000</td><td>Specialized in senior housing.</td></tr>
+<tr><td><strong>DUWO</strong></td><td>Multiple cities</td><td>~35,000</td><td>Specialized in student housing. Part of ROOM.nl platform.</td></tr>
+<tr><td><strong>SSH (Student Stay Housing)</strong></td><td>Utrecht / Eindhoven</td><td>~20,000+</td><td>Student-focused. Part of ROOM.nl and Studentenwoningweb.</td></tr>
+<tr><td><strong>Habion</strong></td><td>Nationwide</td><td>~16,000</td><td>Senior and care housing specialist.</td></tr>
+<tr><td><strong>Intermaris</strong></td><td>Noord-Holland</td><td>~12,000</td><td>Waterland/Purmerend region.</td></tr>
+</tbody>
+</table>
+<p class="pr">Industry body: <strong>Aedes</strong> (Aedes vereniging van woningcorporaties) represents all Dutch housing corporations nationally. They publish benchmarks and policy positions.</p>
+
+<h3 class="sst">WoningNet — how it works</h3>
+<div class="ib"><h4>What is WoningNet?</h4><p>WoningNet is a <strong>shared service center</strong> serving approximately <strong>100 housing associations across 15 regions</strong> and <strong>1.3 million registered home seekers</strong>. It's the central IT platform that manages waiting lists, property matching, and the allocation process for social housing. Their system runs <strong>700 million calculations per day</strong> to match properties to eligible home seekers. WoningNet was modernized in 2016 using OutSystems technology, replacing a 16-year-old Oracle backend. Each region has its own WoningNet portal (e.g., WoningNet Regio Amsterdam, WoningNet Utrecht).</p></div>
+
+<div class="ib"><h4>How to register</h4>
+<ul>
+<li><strong>Step 1:</strong> Go to the WoningNet website for your region (e.g., woningnetregioamsterdam.nl)</li>
+<li><strong>Step 2:</strong> Create an account with your name, birthdate, BSN, and contact details</li>
+<li><strong>Step 3:</strong> Upload required documents (proof of income, residency)</li>
+<li><strong>Step 4:</strong> Pay the registration fee (typically €10-€50 per year depending on region)</li>
+<li><strong>Step 5:</strong> Your waiting time starts from your registration date</li>
+<li><strong>Tip:</strong> Register as early as possible, even years before you need a home — your waiting time accumulates from day one</li>
+</ul>
+</div>
+
+<div class="ib"><h4>The new points system (Amsterdam, since January 2023)</h4><p>Amsterdam WoningNet moved from pure waiting-time to a <strong>4-type points system</strong>:</p>
+<ul>
+<li><strong>Waiting-list points (wachtpunten):</strong> 1 point per year registered. You never lose these. Reset to zero only when you accept a home.</li>
+<li><strong>Search points (zoekpunten):</strong> Earned by actively showing interest in homes (4+ times per month = earn points). Lost if you stop searching, miss viewings, or reject homes.</li>
+<li><strong>Situation points (situatiepunten):</strong> Awarded for specific urgent situations (medical, social reasons).</li>
+<li><strong>Starter points (startpunten):</strong> For first-time seekers who haven't accumulated much waiting time.</li>
+</ul>
+<p>This system gives people urgently looking for housing a better chance even without years of waiting time.</p>
+</div>
+
+<h3 class="sst">The DAK app</h3>
+<div class="ib"><h4>What is DAK?</h4><p><strong>DAK</strong> (Dutch for "roof") is WoningNet's official <strong>mobile app</strong> for iOS and Android. It provides home seekers with "everything they need under one roof" — browsing available properties, receiving notifications, responding to listings, and tracking their application status. It has a <strong>4.5-star rating</strong> on the App Store. Built using OutSystems for single-source development across iOS and Android. Features include: property search with eligibility filtering, push notifications for new matching properties, application tracking, and a feedback system for continuous improvement.</p></div>
+
+<h3 class="sst">Allocation methods — how homes are assigned</h3>
+<div class="ig">
+<div class="ib"><h4>Wait-time based (inschrijfduur)</h4><p>The most common method. The person with the longest registration time (most waiting-list points) gets the property. In Amsterdam, average wait times are <strong>7-15 years</strong> for popular areas. Shorter in less popular areas or smaller cities. Some regions report 3-5 year waits.</p></div>
+<div class="ib"><h4>Lottery (loting)</h4><p>A percentage of properties are allocated by random lottery. All qualified applicants have an equal chance regardless of wait time. This gives newer registrants a shot. Common for starter homes and specific target groups. You usually need to attend a viewing to be eligible for the lottery.</p></div>
+<div class="ib"><h4>Direct offer (directe bemiddeling)</h4><p>Housing corporations may directly offer properties to specific candidates — usually for hard-to-fill properties or specific target groups (seniors, key workers, people with disabilities). Less transparent but allows corporations to match specific needs.</p></div>
+<div class="ib"><h4>Priority / urgency (urgentie)</h4><p>Emergency situations can get priority access: homelessness, domestic violence, medical necessity, mandatory relocation by government. Extremely difficult to obtain — strict criteria, assessed by municipality. Not a common route for most seekers.</p></div>
+</div>
+
+<h3 class="sst">Regional platforms — where to apply by city</h3>
+<table>
+<thead><tr><th>Platform</th><th>Region/Cities covered</th><th>Registration</th></tr></thead>
+<tbody>
+<tr><td><strong>WoningNet Regio Amsterdam</strong></td><td>Amsterdam, Amstelveen, Diemen, Uithoorn + region</td><td>~€50/year</td></tr>
+<tr><td><strong>WoningNet Utrecht</strong></td><td>Utrecht and surrounding municipalities</td><td>Varies</td></tr>
+<tr><td><strong>Woonnet Rijnmond</strong></td><td>Rotterdam, Schiedam, Vlaardingen, Capelle, Spijkenisse</td><td>Paid registration</td></tr>
+<tr><td><strong>Wooniezie</strong></td><td>Eindhoven and Brabant region</td><td>Varies</td></tr>
+<tr><td><strong>Woonkeus Stedendriehoek</strong></td><td>Apeldoorn, Deventer, Zutphen</td><td>Varies</td></tr>
+<tr><td><strong>ThuisinLimburg</strong></td><td>Limburg province</td><td>Varies</td></tr>
+<tr><td><strong>Entree</strong></td><td>Arnhem-Nijmegen region</td><td>Varies</td></tr>
+<tr><td><strong>SVNK</strong></td><td>Noord-Kennemerland (Alkmaar, Heerhugowaard)</td><td>Varies</td></tr>
+<tr><td><strong>Woonmatch Waterland</strong></td><td>Waterland region (north of Amsterdam)</td><td>Linked to WoningNet</td></tr>
+<tr><td><strong>Woonnet Haaglanden</strong></td><td>The Hague region</td><td>Varies</td></tr>
+<tr><td><strong>MijnDak Amsterdam</strong></td><td>Amsterdam (corporation direct rentals)</td><td>Free registration</td></tr>
+</tbody>
+</table>
+
+<h3 class="sst">Step-by-step: how to apply for social housing</h3>
+<div class="ib"><h4>Complete process</h4>
+<ul>
+<li><strong>1. Check eligibility:</strong> Income below limits (€51,537 single / €56,910 multi), legal NL residency, BSN, no property ownership</li>
+<li><strong>2. Register on regional platform:</strong> WoningNet (or Wooniezie/Woonnet Rijnmond for your region). Pay annual fee. Your waiting time starts NOW.</li>
+<li><strong>3. Prepare documents:</strong> Income proof, ID, BRP registration (household composition statement), employment contract. If with partner: marriage certificate or cohabitation agreement. If with children: birth certificates.</li>
+<li><strong>4. Search actively:</strong> Browse available listings. Show interest 4+ times per month (Amsterdam) to earn search points. Filter by income requirements, household size, property type.</li>
+<li><strong>5. Respond to listings:</strong> When you find a match, apply through the platform. You can usually apply for one home at a time per corporation.</li>
+<li><strong>6. Attend viewing:</strong> If shortlisted, attend the viewing in person (required for lottery eligibility). Domakin offers remote viewing services if you can't be there.</li>
+<li><strong>7. Wait for selection:</strong> Based on points/wait-time or lottery. If selected, you'll get a formal offer.</li>
+<li><strong>8. Accept within 48 hours:</strong> You must accept or decline quickly. Declining may cost you search points.</li>
+<li><strong>9. Sign lease + move in:</strong> Provide additional documentation. Pay deposit (max 2 months). Lease is typically indefinite.</li>
+</ul>
+</div>
+
+<div class="warn"><strong>⚠ Key tip:</strong> Register for social housing as early as possible — even if you don't need it now. Many Dutch people register at age 18 to start building wait time. Students are advised to register immediately upon enrolling. The €10-50/year registration fee is a tiny investment for potentially saving hundreds of euros per month in rent years later. In Amsterdam, the 2026 trial is offering 100 homes without priority rules — open to everyone registered.</div>
+
+<h3 class="sst">Tenant rights in social housing</h3>
+<div class="ig">
+<div class="ib"><h4>Rent protection</h4><p>Rent strictly capped by WWS points. Max increase 4.1% (July 2026). If your income is too high for social housing, landlord can apply a higher "income-related" penalty increase to incentivize moving to private sector. You can challenge your rent at the Huurcommissie at any time (no 6-month deadline like free sector).</p></div>
+<div class="ib"><h4>Huurtoeslag (rent allowance)</h4><p>If your income is low and rent is relatively high, you may qualify for government rent subsidy. Applied via Belastingdienst with DigiD. From 2026: rent ceiling removed — more people qualify. Service costs no longer counted. Studios qualify under age 23. Can be backdated to January 1, 2026. Up to 170,000 additional households now eligible.</p></div>
+<div class="ib"><h4>Woningruil (home swap)</h4><p>Since October 2025, the 6 biggest Amsterdam corporations (De Key, Alliantie, Stadgenoot, Eigen Haard, Ymere, Rochdale) have simplified home swaps between their tenants. Same rules across all 6 corporations. Fewer obstacles. Allows tenants to swap to a better-fitting home without losing their social housing status.</p></div>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 4 (was 3) ══════════════════════════════════════ -->
+<hr class="dv" id="s4">
+<h2 class="st">4. The full listing pipeline — how properties reach tenants</h2>
+
+<div class="flow">
+<h4 style="text-align:center;font-size:.77rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem;">Pipeline A: Through a makelaar (most common free-sector)</h4>
+<div class="flow-r">
+<div class="flow-b" style="background:var(--blue-l);color:var(--blue-d);">Owner decides to rent</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--purple-l);color:var(--purple-d);">Hires verhuurmakelaar</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--coral-l);color:#712B13;">Agent creates listing</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--amber-l);color:#633806;">Published on Funda/Pararius/own site</div>
+</div>
+<div class="flow-r">
+<div class="flow-b" style="background:var(--pink-l);color:#72243E;">20-50 applications in 24hrs</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--acc-l);color:var(--acc-d);">Agent screens (income, docs)</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--gray-l);color:#444441;">Top 10-20 get viewings</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--acc);color:#fff;">Lease signed + deposit</div>
+</div>
+</div>
+
+<div class="flow">
+<h4 style="text-align:center;font-size:.77rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem;">Pipeline B: Direct by landlord (no agent)</h4>
+<div class="flow-r">
+<div class="flow-b" style="background:var(--blue-l);color:var(--blue-d);">Landlord</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--amber-l);color:#633806;">Posts on Kamernet / Facebook / Marktplaats</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--acc-l);color:var(--acc-d);">Screens directly</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--acc);color:#fff;">Lease signed</div>
+</div>
+</div>
+
+<div class="flow">
+<h4 style="text-align:center;font-size:.77rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem;">Pipeline C: Social housing</h4>
+<div class="flow-r">
+<div class="flow-b" style="background:var(--blue-l);color:var(--blue-d);">Woningcorporatie</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--purple-l);color:var(--purple-d);">Lists on WoningNet</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--amber-l);color:#633806;">Allocation by points / lottery</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--acc);color:#fff;">Accept within 48hrs</div>
+</div>
+</div>
+
+<div class="flow">
+<h4 style="text-align:center;font-size:.77rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem;">Pipeline D: Where aggregators fit</h4>
+<div class="flow-r">
+<div class="flow-b" style="background:var(--amber-l);color:#633806;">Listing goes live on source site</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--red-l);color:#791F1F;">Aggregator scrapes (30-60sec)</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--pink-l);color:#72243E;">Push notification to user</div><span class="flow-a">→</span>
+<div class="flow-b" style="background:var(--acc-l);color:var(--acc-d);">User applies on source site</div>
+</div>
+<p style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:.4rem;">Aggregators add SPEED, not listings. They sit between platforms and tenants.</p>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 4 ══════════════════════════════════════ -->
+<hr class="dv" id="s4">
+<h2 class="st">5. Makelaars — every type of agent</h2>
+<p class="pr"><strong>Important:</strong> In the Netherlands, anyone can call themselves a "makelaar" — the title is NOT legally protected. Certification and association membership (NVM, VBO, Vastgoedpro) is what matters.</p>
+<div class="ig">
+<div class="ib"><h4>Verhuurmakelaar (listing/rental agent)</h4><p>Works for the LANDLORD. Creates listing, photos, price, publishes on Funda/Pararius, screens tenants, organizes viewings, prepares lease. <strong>Paid by landlord.</strong> Cannot legally charge the tenant since they represent the landlord (2015 law). Typical fee: fixed or % of annual rent.</p></div>
+<div class="ib"><h4>Aankoopmakelaar (buying agent)</h4><p>Works for the BUYER. Searches, advises on pricing, negotiates, handles paperwork to notary transfer. Fee: fixed (€3-6K) or "staffel" (sliding scale based on negotiation result). 75% of Dutch homes sold through NVM agents.</p></div>
+<div class="ib"><h4>Verkoopmakelaar (selling agent)</h4><p>Works for the SELLER. Values property, markets it, lists on Funda, organizes viewings, negotiates. Fee: 1-2% of sale price or fixed. Dual agency discouraged.</p></div>
+<div class="ib"><h4>Huurmakelaar (tenant's search agent)</h4><p>Works for the TENANT. Legal to charge tenant (1-1.5 months' rent + 21% VAT, min ~€2,750). "No cure, no pay." Searches, schedules viewings, negotiates, checks lease.</p></div>
+<div class="ib"><h4>Vastgoedbeheerder (property manager)</h4><p>Manages rentals for landlords: tenant relations, maintenance, rent collection, lease renewals. Companies: MVGM, Vesteda, local firms. Monthly fee, ongoing relationship.</p></div>
+<div class="ib"><h4>Taxateur (appraiser)</h4><p>Official property valuations (taxatierapport). Required for mortgages. NWWI validates. Cost: €400-€600.</p></div>
+</div>
+<div class="warn"><strong>⚠ Agency fee rule (since 2015):</strong> If the agent represents the LANDLORD, they CANNOT charge the tenant anything. If you paid an agency fee to a landlord's agent in the past 5 years, you may be legally entitled to a refund (wooninfo.nl/english/reclaim-unjust-agency-fees/).</div>
+
+<!-- ══════════════════════════════════════ SECTION 5 ══════════════════════════════════════ -->
+<hr class="dv" id="s5">
+<h2 class="st">6. Agent associations</h2>
+<div class="ig">
+<div class="ib"><h4>NVM — Nederlandse Vereniging van Makelaars</h4>
+<ul>
+<li>Largest association: 5,500+ agents and appraisers</li>
+<li>~75% of all Dutch home sales go through NVM agents</li>
+<li>Co-founded and owns Funda (indirectly, with General Atlantic holding 24%)</li>
+<li>Operates the Tiara exchange system and MIDAS database (via subsidiary Brainbay)</li>
+<li>NVM agents get preferential Funda terms (lower fees, more features, better ranking)</li>
+<li>Members must update professional knowledge annually</li>
+<li>Connected to digital knowledge center for property data</li>
+<li>Publishes quarterly housing market statistics</li>
+</ul>
+</div>
+<div class="ib"><h4>VBO Makelaars</h4>
+<ul>
+<li>Second largest association</li>
+<li>Has agreements with Funda but pays higher tariffs and gets fewer features</li>
+<li>Sued Funda for abuse of dominant position (lost in 2020)</li>
+<li>Was denied access to NVM's MIDAS historical database</li>
+<li>Members can list on Funda but with less favorable terms</li>
+</ul>
+</div>
+<div class="ib"><h4>Vastgoedpro</h4>
+<ul>
+<li>Third association for real estate professionals</li>
+<li>Smaller membership base</li>
+<li>Members can also list on Funda under certain agreements</li>
+</ul>
+</div>
+<div class="ib"><h4>Juiste Makelaar</h4>
+<ul>
+<li>Not an association but a comparison service</li>
+<li>Matches you with the best-performing agent based on your area and preferences</li>
+<li>Free for the buyer/seller — they charge a small fee to the agent</li>
+<li>Uses neighborhood data + user reviews to recommend agents</li>
+</ul>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 6 ══════════════════════════════════════ -->
+<hr class="dv" id="s6">
+<h2 class="st">7. How landlords list properties — step by step</h2>
+<p class="pr">When a landlord decides to rent out their property, here's exactly what happens:</p>
+<div class="ib"><h4>Step 1: Check legal requirements</h4><p>Landlord checks their mortgage deed — many mortgages require lender permission before renting out. Must check if municipality requires a rental permit (huisvestingsvergunning) — especially in Amsterdam, The Hague, Rotterdam. Must comply with the Good Landlordship Act (Wet goed verhuurderschap) since July 2023. Must provide energy label (EP-Online). Must ensure the property meets safety/health standards.</p></div>
+<div class="ib"><h4>Step 2: Determine rent level</h4><p>Use the WWS points system (woningwaarderingsstelsel) to calculate max rent. If the property scores ≤186 points → regulated/mid-market (capped rent). If it scores above 186 → free sector (market price). Landlords can use the government's huurprijscalculator. They should also check comparable rents on Pararius/Funda to set a competitive price.</p></div>
+<div class="ib"><h4>Step 3: Choose listing method</h4>
+<ul>
+<li><strong>Option A — Hire a verhuurmakelaar:</strong> Agent handles everything. Costs landlord a fee (typically fixed or % of annual rent). Agent lists on Funda (if NVM/VBO member), Pararius, own website, and potentially other portals. Agent screens tenants, organizes viewings, prepares contracts.</li>
+<li><strong>Option B — Self-list:</strong> Landlord posts on Kamernet, Marktplaats, Facebook groups, Pararius (if they pay the listing fee directly). Handles everything themselves. Cheaper but more work.</li>
+<li><strong>Option C — Property manager:</strong> Hire a vastgoedbeheerder (MVGM, local firm) for ongoing management including listing, tenant screening, rent collection, maintenance.</li>
+</ul>
+</div>
+<div class="ib"><h4>Step 4: Create listing</h4><p>Professional photos (agents typically hire a photographer or use own equipment). Floor plan (meetrapport — official measurement report). Description: size (m²), number of rooms, energy label, furnished/unfurnished/semi-furnished (gestoffeerd/gemeubileerd), rent price (kale huur = base rent, servicekosten = service charges), available date, minimum lease term, pet policy, registration possibility.</p></div>
+<div class="ib"><h4>Step 5: Publish</h4><p>NVM agents → listing enters Tiara system → MIDAS database → Funda + agent's own website automatically. Non-NVM agents → manual posting on Pararius, Kamernet, own website, etc. Within 30-60 seconds of going live, aggregators (Stekkies, RentSlam, Rentbird) detect the listing and send notifications to their subscribers.</p></div>
+<div class="ib"><h4>Step 6: Receive applications</h4><p>Popular properties receive 20-50+ applications within 24 hours. Many agents stop accepting after the first 20-30 qualified applicants. Speed of response is the #1 factor — which is why aggregators exist.</p></div>
+<div class="ib"><h4>Step 7: Screen & select tenant</h4><p>Standard requirements: 3-4× gross monthly income vs. rent, employment contract (permanent preferred, temp accepted sometimes), last 3 payslips, employer's statement (werkgeversverklaring), ID/passport, sometimes: references from previous landlord, bank statements. For expats: 30% ruling documentation, employment contract in English. Landlords select the "lowest risk" candidate — not necessarily the first applicant.</p></div>
+<div class="ib"><h4>Step 8: Lease agreement</h4><p>Since January 2025: must be in writing. Must include: base rent, service charges, deposit amount, start date, lease type (indefinite is default since July 2024). Since January 2025: landlord must also provide WWS points calculation alongside the contract. Deposit: max 2 months' basic rent (since July 2023). Diplomatic clause: allows early termination if tenant is transferred 50+ km away.</p></div>
+
+<h3 class="sst">What landlords require from tenants — full document list</h3>
+<table>
+<thead><tr><th>Document</th><th>Why</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Valid ID / passport</strong></td><td>Identity verification</td><td>Required for everyone</td></tr>
+<tr><td><strong>Employment contract</strong></td><td>Job stability proof</td><td>Permanent (vast) preferred; temp (tijdelijk) accepted with proof</td></tr>
+<tr><td><strong>Last 3 payslips</strong></td><td>Income verification</td><td>Must show gross salary ≥ 3-4× monthly rent</td></tr>
+<tr><td><strong>Werkgeversverklaring</strong></td><td>Employer's statement</td><td>Confirms employment and salary. Ask your HR department.</td></tr>
+<tr><td><strong>BSN number</strong></td><td>Dutch citizen service number</td><td>Required for municipal registration at the address</td></tr>
+<tr><td><strong>Bank statements (3 months)</strong></td><td>Financial stability</td><td>Sometimes requested</td></tr>
+<tr><td><strong>Landlord reference</strong></td><td>Rental history</td><td>Optional but strengthens application</td></tr>
+<tr><td><strong>Motivation letter</strong></td><td>Personal introduction</td><td>Critical in competitive market — explains who you are, why you want the property</td></tr>
+<tr><td><strong>30% ruling proof</strong></td><td>Tax benefit for expats</td><td>Allows landlords to accept adjusted income calculation</td></tr>
+</tbody>
+</table>
+<p class="pr"><strong>The 3-4× income rule:</strong> The single biggest filter. If rent is €1,500/month, you need €4,500-€6,000 gross monthly income (€54,000-€72,000/year). Formula: Gross Monthly Salary ÷ 3.5 = Maximum Affordable Rent. Self-employed (ZZP) tenants often face higher scrutiny — may need to show 2+ years of tax returns and sometimes an accountant's statement.</p>
+
+<!-- ══════════════════════════════════════ SECTION 7 ══════════════════════════════════════ -->
+<hr class="dv" id="s7">
+<h2 class="st">8. All 49 platforms — complete directory</h2>
+<div class="fb-bar">
+<button class="fb active" onclick="f('all')">All (49)</button>
+<button class="fb" onclick="f('agg')">Aggregators (16)</button>
+<button class="fb" onclick="f('src')">Source (8)</button>
+<button class="fb" onclick="f('social')">Social housing (6)</button>
+<button class="fb" onclick="f('stu')">Student (4)</button>
+<button class="fb" onclick="f('ak')">Anti-kraak (6)</button>
+<button class="fb" onclick="f('exp')">Expat (3)</button>
+<button class="fb" onclick="f('comm')">Community (4)</button>
+<button class="fb" onclick="f('mid')">Mid-term (2)</button>
+</div>
+<div class="grid" id="g">
+
+<div class="cat-label" style="background:var(--purple-l);color:var(--purple-d);" data-cat="agg">AGGREGATORS <span class="cb">16</span></div>
+<div class="pc" data-cat="agg"><div class="hd"><h3>1. Stekkies</h3><a class="url" href="https://stekkies.com/en">stekkies.com</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">~€29.95/mo</span><span class="t t-alert">30s alerts</span></div><p class="bd">1,000+ sites scanned every minute. Push/email/WhatsApp within 30s. Free-sector only. 4.7★ Trustpilot (~2,500). Pet filter, search buddy, templates.</p><div class="det"><div class="dl">Method & revenue</div><div class="dv">Proprietary crawlers every ~60s. Custom dedup. Revenue: subscriptions (~€30/mo × thousands of users).</div></div></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>2. RentSlam</h3><a class="url" href="https://rentslam.com/en">rentslam.com</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">from €19.98/mo</span><span class="t t-alert">AI</span></div><p class="bd">Since 2015 — oldest major. Scans every 30s (fastest). AI matching + auto-response. NL/EN/DE. Avg 6 weeks to find home.</p><div class="det"><div class="dl">Method & revenue</div><div class="dv">High-freq scraping every 30s, 1,000+ sources. AI profile matching. Auto-response templates. No commission. Revenue: subs.</div></div></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>3. Rentbird</h3><a class="url" href="https://rentbird.nl/en">rentbird.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">~€29/mo</span><span class="t t-alert">App</span></div><p class="bd">Founded 2020 by two devs. 1,400+ sites. 4.6★ (1,600+ reviews). AI reaction letters. Partner search.</p><div class="det"><div class="dl">Method</div><div class="dv">Bots crawl 1,400+ sites → index → notify → user applies on source. Push + WhatsApp.</div></div></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>4. Huisly</h3><a class="url" href="https://huisly.nl">huisly.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-free">Free</span><span class="t t-alert">Push</span></div><p class="bd">1,400+ sources incl. individual makelaars. Completely free. 10K users in 2 months. iOS+Android. Scam verification layer.</p><div class="det"><div class="dl">Method</div><div class="dv">Thousands of updates/hour from 1,400+ sources incl. unconventional ones. Security validation layer. Revenue model undisclosed.</div></div></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>5. Findify</h3><a class="url" href="https://findify.nl">findify.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">from €19.99/mo</span><span class="t t-alert">Auto-apply</span></div><p class="bd">"Complete rental assistant." One-tap auto-apply, in-app landlord chat, partner sharing. Only verified agencies.</p><div class="det"><div class="dl">Method</div><div class="dv">Scrapes verified agencies. Automated application submission. Proxied messaging. Revenue: subs.</div></div></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>6. RentHunter</h3><a class="url" href="https://renthunter.nl">renthunter.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">€29/mo</span><span class="t t-expat">Expat</span></div><p class="bd">Aggregates Kamernet, Pararius, Funda+. Human scam-filter team. Built for non-Dutch speakers.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>7. Uprent</h3><a class="url" href="https://uprent.nl">uprent.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">Paid</span><span class="t t-alert">Extension</span></div><p class="bd">Platform + browser extension. Travel-time filter. AI auto-response (upcoming). Renter rights advocacy.</p><div class="det"><div class="dl">Method</div><div class="dv">Server scraping + browser extension intercepting pages. Dual data collection model.</div></div></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>8. Huurwoningen.nl</h3><a class="url" href="https://huurwoningen.nl">huurwoningen.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">€29.95/mo</span></div><p class="bd">Since 2011. One of largest. Free browse, paid to contact. Availability checks. City pages.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>9. Direct Wonen</h3><a class="url" href="https://directwonen.nl">directwonen.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">Paywall</span></div><p class="bd">~2,300 listings. Recent listings paywalled.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>10. Rentola</h3><a class="url" href="https://rentola.nl">rentola.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">Trial→sub</span></div><p class="bd">International (multi-EU). ~9,355+ NL listings. Contact gated. Billing complaints on Trustpilot.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>11. Luntero</h3><a class="url" href="https://luntero.com">luntero.com</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-free">Free+Pro</span><span class="t t-alert">AI</span></div><p class="bd">20,000+ listings. AI summaries + comparisons. Meta-aggregator — catalogs ALL other Dutch platforms. Market analytics.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>12. Huispedia</h3><a class="url" href="https://huispedia.nl">huispedia.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-free">Free</span></div><p class="bd">Property data + AI valuations + market trends alongside listings. Discovery layer linking to agencies.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>13. Huurda</h3><a class="url" href="https://huurda.nl">huurda.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-free">Free</span></div><p class="bd">Small (~400+) but no paywall. Free contact. Bilingual.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>14. Huure</h3><a class="url" href="https://huure.nl">huure.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-paid">€1→€49/mo</span></div><p class="bd">Most expensive. 6 cities. Mixed sources.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>15. Huurportaal</h3><a class="url" href="https://huurportaal.nl">huurportaal.nl</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-free">Free</span></div><p class="bd">12,491+ listings. Daily updates. Direct contacts.</p></div>
+
+<div class="pc" data-cat="agg"><div class="hd"><h3>16. Nestpick</h3><a class="url" href="https://nestpick.com">nestpick.com</a></div><div class="tags"><span class="t t-agg">Aggregator</span><span class="t t-expat">Int'l</span></div><p class="bd">International. Mid-to-long term across many countries.</p></div>
+
+<div class="cat-label" style="background:var(--blue-l);color:var(--blue-d);" data-cat="src">SOURCE PLATFORMS <span class="cb">8</span></div>
+
+<div class="pc" data-cat="src"><div class="hd"><h3>17. Funda</h3><a class="url" href="https://funda.nl">funda.nl</a></div><div class="tags"><span class="t t-src">Source</span><span class="t t-free">Free</span></div><p class="bd">THE largest. 97% awareness. 4.6M visitors/mo. NVM-owned. Buy+rent. 50K+ listings. Distil Networks anti-bot. Court-confirmed dominant position. General Atlantic 24% stake.</p><div class="det"><div class="dl">Data pipeline</div><div class="dv">NVM agents → Tiara → MIDAS (Brainbay) → Funda. API: ~1M calls/day. Revenue: agent listing fees + upgrades.</div></div></div>
+
+<div class="pc" data-cat="src"><div class="hd"><h3>18. Pararius</h3><a class="url" href="https://pararius.com">pararius.com</a></div><div class="tags"><span class="t t-src">Source</span><span class="t t-free">Free</span><span class="t t-expat">6 langs</span></div><p class="bd">Largest independent rental. Founded 2006. 1.5M visitors/mo. 60K+ listings from 3,500+ agencies. ~$2M annual revenue.</p></div>
+
+<div class="pc" data-cat="src"><div class="hd"><h3>19. Kamernet</h3><a class="url" href="https://kamernet.nl">kamernet.nl</a></div><div class="tags"><span class="t t-src">Source</span><span class="t t-paid">Sub</span></div><p class="bd">Largest rooms/shared. ~7K new/mo. Student cities. Direct landlord contact.</p></div>
+
+<div class="pc" data-cat="src"><div class="hd"><h3>20. HousingAnywhere</h3><a class="url" href="https://housinganywhere.com">housinganywhere.com</a></div><div class="tags"><span class="t t-src">Source</span><span class="t t-free">Free</span><span class="t t-expat">Int'l</span></div><p class="bd">International renters. Furnished, mid-term. Students. Service fee on booking.</p></div>
+
+<div class="pc" data-cat="src"><div class="hd"><h3>21. Kamer.nl</h3><a class="url" href="https://kamer.nl">kamer.nl</a></div><div class="tags"><span class="t t-src">Source</span><span class="t t-paid">Paid</span></div><p class="bd">Rooms/shared. Quality assurance focus.</p></div>
+
+<div class="pc" data-cat="src"><div class="hd"><h3>22. KamerHuren.nl</h3><a class="url" href="https://kamerhuren.nl">kamerhuren.nl</a></div><div class="tags"><span class="t t-src">Source</span></div><p class="bd">Rooms+flats. Groningen to Breda.</p></div>
+
+<div class="pc" data-cat="src"><div class="hd"><h3>23. Vesteda</h3><a class="url" href="https://vesteda.com">vesteda.com</a></div><div class="tags"><span class="t t-src">Source</span><span class="t t-free">Free</span></div><p class="bd">~28K units. €4B portfolio. Mid-market. Pension fund backed. Avg rent ~€1K. Priority profiles.</p></div>
+
+<div class="pc" data-cat="src"><div class="hd"><h3>24. MVGM</h3><a class="url" href="https://mvgm.nl">mvgm.nl</a></div><div class="tags"><span class="t t-src">Source</span><span class="t t-paid">€36/yr</span></div><p class="bd">Property manager. ~197 listings. Lottery viewings. Registration refunded on rental.</p></div>
+
+<div class="cat-label" style="background:var(--coral-l);color:#712B13;" data-cat="exp">EXPAT-FOCUSED <span class="cb">3</span></div>
+<div class="pc" data-cat="exp"><div class="hd"><h3>25. IamExpat Housing</h3><a class="url" href="https://iamexpat.nl/housing">iamexpat.nl</a></div><div class="tags"><span class="t t-expat">Expat</span><span class="t t-free">Free</span></div><p class="bd">Part of IamExpat media. Mix of agency listings + content. One-stop for newcomers.</p></div>
+<div class="pc" data-cat="exp"><div class="hd"><h3>26. OnlyExpats</h3><a class="url" href="https://onlyexpats.nl">onlyexpats.nl</a></div><div class="tags"><span class="t t-expat">Expat</span></div><p class="bd">Curated for expats. English-speaking agents.</p></div>
+<div class="pc" data-cat="exp"><div class="hd"><h3>27. Expatica Housing</h3><a class="url" href="https://expatica.com/nl/housing">expatica.com</a></div><div class="tags"><span class="t t-expat">Expat</span></div><p class="bd">Directory/guide. Links to platforms. Editorial content.</p></div>
+
+<div class="cat-label" style="background:var(--amber-l);color:#633806;" data-cat="mid">MID-TERM & INTERNATIONAL <span class="cb">2</span></div>
+<div class="pc" data-cat="mid"><div class="hd"><h3>28. Flatio</h3><a class="url" href="https://flatio.com">flatio.com</a></div><div class="tags"><span class="t t-paid">Paid</span><span class="t t-expat">Int'l</span></div><p class="bd">Global mid-term. Deposit-free. 300+ destinations. Digital nomads, Erasmus. Virtual tours.</p></div>
+<div class="pc" data-cat="mid"><div class="hd"><h3>29. Holland2Stay</h3><a class="url" href="https://holland2stay.com">holland2stay.com</a></div><div class="tags"><span class="t t-src">Source</span></div><p class="bd">Developer/manager with own units. Young professionals + students.</p></div>
+
+<div class="cat-label" style="background:var(--gray-l);color:#444441;" data-cat="social">SOCIAL HOUSING <span class="cb">6</span></div>
+<div class="pc" data-cat="social"><div class="hd"><h3>30. WoningNet</h3><a class="url" href="https://woningnet.nl">woningnet.nl</a></div><div class="tags"><span class="t t-social">Social</span></div><p class="bd">THE major platform. AMS, Utrecht, Almere, Haarlem+. Points+lottery. Multi-corporation. New 4-type points system (2026).</p></div>
+<div class="pc" data-cat="social"><div class="hd"><h3>31. Woonnet Rijnmond</h3></div><div class="tags"><span class="t t-social">Social</span></div><p class="bd">Rotterdam region. DirectKans + WoningLoting. Evening releases.</p></div>
+<div class="pc" data-cat="social"><div class="hd"><h3>32. Wooniezie</h3></div><div class="tags"><span class="t t-social">Social</span></div><p class="bd">Eindhoven / Brabant region.</p></div>
+<div class="pc" data-cat="social"><div class="hd"><h3>33. Woonservice Den Haag</h3></div><div class="tags"><span class="t t-social">Social</span></div><p class="bd">The Hague region. App notifications.</p></div>
+<div class="pc" data-cat="social"><div class="hd"><h3>34. SVNK</h3></div><div class="tags"><span class="t t-social">Social</span></div><p class="bd">Noord-Kennemerland (Alkmaar area).</p></div>
+<div class="pc" data-cat="social"><div class="hd"><h3>35. MijnDak Amsterdam</h3></div><div class="tags"><span class="t t-social">Social</span></div><p class="bd">Amsterdam corporation rentals. Points calculator.</p></div>
+
+<div class="cat-label" style="background:var(--red-l);color:#791F1F;" data-cat="stu">STUDENT HOUSING <span class="cb">4</span></div>
+<div class="pc" data-cat="stu"><div class="hd"><h3>36. ROOM.nl / ROOMmatch</h3><a class="url" href="https://room.nl">room.nl</a></div><div class="tags"><span class="t t-student">Student</span><span class="t t-paid">€35/8yr</span></div><p class="bd">National. DUWO, Idealis, SSH, Lefier, Pré Wonen, Ymere. 50K+ rooms. Profile matching + wait-time.</p></div>
+<div class="pc" data-cat="stu"><div class="hd"><h3>37. Studentenwoningweb</h3><a class="url" href="https://studentenwoningweb.nl">studentenwoningweb.nl</a></div><div class="tags"><span class="t t-student">Student</span><span class="t t-paid">€22-26/8yr</span></div><p class="bd">Corporation rooms. Wait-time + lottery. 3-6yr waits big cities.</p></div>
+<div class="pc" data-cat="stu"><div class="hd"><h3>38. Domakin</h3><a class="url" href="https://domakin.nl">domakin.nl</a></div><div class="tags"><span class="t t-student">Student</span><span class="t t-free">Free</span></div><p class="bd">Bulgarian Society assoc. Remote viewing service. WhatsApp groups.</p></div>
+<div class="pc" data-cat="stu"><div class="hd"><h3>39. RentSwap</h3><a class="url" href="https://rentswap.nl">rentswap.nl</a></div><div class="tags"><span class="t t-student">Student</span><span class="t t-free">Free</span></div><p class="bd">Contract swap/transfer. Verified listings. WhatsApp groups network.</p></div>
+
+<div class="cat-label" style="background:#F1EFE8;color:#5F5E5A;" data-cat="ak">ANTI-KRAAK AGENCIES <span class="cb">6</span></div>
+<div class="pc" data-cat="ak"><div class="hd"><h3>40. Camelot Europe</h3></div><div class="tags"><span class="t t-ak">Anti-kraak</span></div><p class="bd">Founded 1993. Largest. ~50% market rent. Controversial. Minimal tenant rights.</p></div>
+<div class="pc" data-cat="ak"><div class="hd"><h3>41. Ad Hoc Beheer</h3></div><div class="tags"><span class="t t-ak">Anti-kraak</span></div><p class="bd">Major agency. Used by corps Zayaz, Brabant Wonen.</p></div>
+<div class="pc" data-cat="ak"><div class="hd"><h3>42. VPS Nederland</h3></div><div class="tags"><span class="t t-ak">Anti-kraak</span></div><p class="bd">Vacant property management nationwide.</p></div>
+<div class="pc" data-cat="ak"><div class="hd"><h3>43. Gapph</h3></div><div class="tags"><span class="t t-ak">Anti-kraak</span></div><p class="bd">Long waiting list. Property guardianship.</p></div>
+<div class="pc" data-cat="ak"><div class="hd"><h3>44. Villex / Alvast</h3></div><div class="tags"><span class="t t-ak">Anti-kraak</span></div><p class="bd">Anti-kraak + temporary housing.</p></div>
+<div class="pc" data-cat="ak"><div class="hd"><h3>45. Interveste / Zwerfkei</h3></div><div class="tags"><span class="t t-ak">Anti-kraak</span></div><p class="bd">Multiple NL regions.</p></div>
+
+<div class="cat-label" style="background:var(--amber-l);color:#412402;" data-cat="comm">COMMUNITY & SOCIAL MEDIA <span class="cb">4</span></div>
+<div class="pc" data-cat="comm"><div class="hd"><h3>46. Facebook Housing Groups</h3></div><div class="tags"><span class="t t-comm">Community</span><span class="t t-free">Free</span></div><p class="bd">130+ active groups. P2P. HIGH scam risk. Meta blocks scraping aggressively.</p></div>
+<div class="pc" data-cat="comm"><div class="hd"><h3>47. WhatsApp Groups</h3></div><div class="tags"><span class="t t-comm">Community</span><span class="t t-free">Free</span></div><p class="bd">City-specific (RentSwap, Domakin, informal). E2E encrypted. Not scrapable.</p></div>
+<div class="pc" data-cat="comm"><div class="hd"><h3>48. Marktplaats</h3><a class="url" href="https://marktplaats.nl">marktplaats.nl</a></div><div class="tags"><span class="t t-comm">Classifieds</span><span class="t t-free">Free</span></div><p class="bd">NL's largest classifieds (Adevinta/eBay). Housing section. Apify scrapers exist.</p></div>
+<div class="pc" data-cat="comm"><div class="hd"><h3>49. Hospi Housing</h3><a class="url" href="https://hospihousing.com">hospihousing.com</a></div><div class="tags"><span class="t t-comm">Homestay</span><span class="t t-paid">€295 match</span></div><p class="bd">Verified host families. Homestay/homesharing. Lower rent.</p></div>
+
+</div><!-- end grid -->
+
+<!-- ══════════════════════════════════════ SECTION 8 ══════════════════════════════════════ -->
+<hr class="dv" id="s8">
+<h2 class="st">9. Business models</h2>
+<div class="ig">
+<div class="ib"><h4>Aggregator (Stekkies, RentSlam, Rentbird…)</h4><p>Revenue: monthly tenant subscriptions (€19.98-€49/mo). No commission. Core value = speed. High margins once infrastructure built.</p></div>
+<div class="ib"><h4>Source platform (Funda, Pararius)</h4><p>Revenue: listing fees from agents (primary). Tenant premium subs (Pararius+). Featured placement upsells. Funda: strong YoY growth, General Atlantic backed.</p></div>
+<div class="ib"><h4>Institutional landlord (Vesteda, Holland2Stay)</h4><p>Revenue: rental income from own portfolio. Not a platform business. Vesteda: ~28K units, ~€4B invested.</p></div>
+<div class="ib"><h4>Social housing (WoningNet, ROOM.nl)</h4><p>Revenue: small registration fees + corporation funding. Government-backed. Non-profit.</p></div>
+<div class="ib"><h4>Anti-kraak (Camelot, Ad Hoc…)</h4><p>Revenue: management fees from building owners + usage fees from occupants. ~€150M combined market.</p></div>
+<div class="ib"><h4>Community (Facebook, WhatsApp, RentSwap)</h4><p>Revenue: generally free. Some via service fees (Domakin remote viewings). RentSwap: swap facilitation.</p></div>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 9 ══════════════════════════════════════ -->
+<hr class="dv" id="s9">
+<h2 class="st">10. Data infrastructure & scraping methods</h2>
+<h3 class="sst">The Funda/NVM pipeline (only official API)</h3>
+<p class="pr">Agent → office automation → <strong>Tiara</strong> exchange → <strong>MIDAS</strong> database → <strong>Brainbay</strong> (NVM subsidiary, ~1M API calls/day) → <strong>Funda</strong> + connected webmasters. External API access under strict terms — must add value for NVM agents. NOT available for consumer aggregators.</p>
+<h3 class="sst">Everything else = unauthorized scraping</h3>
+<p class="pr">Every aggregator operates by scraping without explicit authorization. No shared industry API, no MLS-equivalent, no standard syndication. The entire aggregation industry is built on web scraping.</p>
+
+<div class="diagram-title">The Dutch housing data ecosystem</div>
+<div class="diagram-wrap">
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="a2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#78716C"/></marker><marker id="a3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#0D9668"/></marker><marker id="a4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker></defs>
+<text x="400" y="20" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#78716C" letter-spacing="2">DATA SOURCES</text>
+<rect x="15" y="35" width="130" height="55" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="80" y="58" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1E40AF">NVM Agents</text>
+<text x="80" y="73" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#1E40AF">5,500+ agents</text>
+<rect x="160" y="35" width="130" height="55" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="225" y="58" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1E40AF">VBO / Other agents</text>
+<text x="225" y="73" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#1E40AF">Independent</text>
+<rect x="305" y="35" width="130" height="55" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="370" y="58" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1E40AF">Private landlords</text>
+<text x="370" y="73" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#1E40AF">Direct listings</text>
+<rect x="450" y="35" width="130" height="55" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="515" y="58" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1E40AF">Corporations</text>
+<text x="515" y="73" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#1E40AF">280 corps</text>
+<rect x="595" y="35" width="130" height="55" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="660" y="58" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1E40AF">Agent websites</text>
+<text x="660" y="73" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#1E40AF">1,000s of sites</text>
+<line x1="80" y1="90" x2="80" y2="135" stroke="#0D9668" stroke-width="1.5" marker-end="url(#a3)"/>
+<line x1="225" y1="90" x2="300" y2="135" stroke="#78716C" stroke-width="1" stroke-dasharray="4" marker-end="url(#a2)"/>
+<line x1="370" y1="90" x2="370" y2="135" stroke="#78716C" stroke-width="1" stroke-dasharray="4" marker-end="url(#a2)"/>
+<line x1="515" y1="90" x2="515" y2="135" stroke="#78716C" stroke-width="1" marker-end="url(#a2)"/>
+<line x1="660" y1="90" x2="550" y2="135" stroke="#78716C" stroke-width="1" stroke-dasharray="4" marker-end="url(#a2)"/>
+<text x="400" y="120" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#78716C" letter-spacing="2">PLATFORMS</text>
+<rect x="15" y="135" width="150" height="60" rx="8" fill="#ECFDF5" stroke="#0D9668" stroke-width="2"/>
+<text x="90" y="158" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#065F46">Funda</text>
+<text x="90" y="174" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#065F46">via Tiara/MIDAS API</text>
+<text x="90" y="187" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#0D9668">OFFICIAL</text>
+<rect x="180" y="135" width="150" height="60" rx="8" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1.5"/>
+<text x="255" y="158" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="600" fill="#44403C">Pararius</text>
+<text x="255" y="174" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#57534E">Agency-direct</text>
+<rect x="345" y="135" width="150" height="60" rx="8" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1.5"/>
+<text x="420" y="158" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="600" fill="#44403C">Kamernet</text>
+<text x="420" y="174" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#57534E">Direct listings</text>
+<rect x="510" y="135" width="150" height="60" rx="8" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1.5"/>
+<text x="585" y="158" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="600" fill="#44403C">WoningNet</text>
+<text x="585" y="174" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#57534E">Corp data sharing</text>
+<rect x="665" y="135" width="120" height="60" rx="8" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1.5"/>
+<text x="725" y="158" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#44403C">1000s more</text>
+<text x="725" y="174" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#57534E">Small sites</text>
+<text x="400" y="218" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#DC2626" letter-spacing="2">SCRAPED BY AGGREGATORS</text>
+<line x1="90" y1="195" x2="90" y2="235" stroke="#DC2626" stroke-width="1" stroke-dasharray="3" marker-end="url(#a4)"/>
+<line x1="255" y1="195" x2="255" y2="235" stroke="#DC2626" stroke-width="1" stroke-dasharray="3" marker-end="url(#a4)"/>
+<line x1="420" y1="195" x2="420" y2="235" stroke="#DC2626" stroke-width="1" stroke-dasharray="3" marker-end="url(#a4)"/>
+<line x1="725" y1="195" x2="600" y2="235" stroke="#DC2626" stroke-width="1" stroke-dasharray="3" marker-end="url(#a4)"/>
+<rect x="50" y="235" width="700" height="55" rx="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+<text x="400" y="258" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#991B1B">Aggregators: Stekkies · RentSlam · Rentbird · Huisly · Findify · RentHunter · Uprent · ...</text>
+<text x="400" y="276" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#991B1B">Scrape every 30-60 seconds → send push/email/WhatsApp to subscribers</text>
+<line x1="400" y1="290" x2="400" y2="315" stroke="#78716C" stroke-width="1.5" marker-end="url(#a2)"/>
+<rect x="250" y="315" width="300" height="20" rx="6" fill="#F5F5F4"/>
+<text x="400" y="330" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#57534E">User applies on original source site</text>
+</svg>
+</div>
+<div class="ig">
+<div class="ib"><h4>Web scraping (all aggregators)</h4><p>Python: Scrapy, BeautifulSoup, Playwright, Selenium. 30s-60s scan intervals. Parse HTML for price, address, photos, description. Custom deduplication engines.</p></div>
+<div class="ib"><h4>Anti-bot circumvention</h4><p>Funda: Distil Networks. Others: Cloudflare, DataDome, reCAPTCHA. Counter: NL residential proxies, headless browsers, CAPTCHA solving, fingerprint management, cloud browser farms.</p></div>
+<div class="ib"><h4>Third-party scrapers (Apify, Zyte)</h4><p>Apify: Funda (~€0.70/1K), Pararius, Kamernet, Marktplaats scrapers. ScraperAPI, Crawlbase, ScrapFly: anti-bot bypass + NL proxies.</p></div>
+<div class="ib"><h4>Browser extension (Uprent)</h4><p>Client-side capture as users browse. Lower server cost. Stronger legal position (user-directed). Captures from any site without server scraping.</p></div>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 10 ══════════════════════════════════════ -->
+<hr class="dv" id="s10">
+<h2 class="st">11. Legal framework — scraping legality & court cases</h2>
+
+<div class="diagram-title">Legal framework — what applies to housing data scraping in the Netherlands</div>
+<div class="diagram-wrap">
+<svg viewBox="0 0 800 290" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="a5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#78716C"/></marker></defs>
+<text x="400" y="22" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#44403C">LAYERS OF LEGAL PROTECTION ON HOUSING DATA</text>
+<rect x="20" y="40" width="230" height="70" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="135" y="63" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#1E40AF">EU Database Directive</text>
+<text x="135" y="80" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#1E40AF">96/9/EC — Sui generis right</text>
+<text x="135" y="95" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Protects "substantial investment"</text>
+<rect x="280" y="40" width="230" height="70" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="395" y="63" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5B21B6">GDPR</text>
+<text x="395" y="80" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#5B21B6">Personal data protection</text>
+<text x="395" y="95" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Names, contacts in listings</text>
+<rect x="540" y="40" width="240" height="70" rx="10" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.5"/>
+<text x="660" y="63" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#9A3412">Terms of Service</text>
+<text x="660" y="80" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#9A3412">Contract law (browsewrap)</text>
+<text x="660" y="95" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Ryanair v PR Aviation</text>
+<rect x="20" y="130" width="230" height="70" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+<text x="135" y="153" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#92400E">DSM Copyright Directive</text>
+<text x="135" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#92400E">2019/790 — TDM exception</text>
+<text x="135" y="185" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Allows mining IF not opted out</text>
+<rect x="280" y="130" width="230" height="70" rx="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+<text x="395" y="153" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#991B1B">Dutch DPA Guidelines</text>
+<text x="395" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#991B1B">Autoriteit Persoonsgegevens</text>
+<text x="395" y="185" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">"Critical of commercial scraping"</text>
+<rect x="540" y="130" width="240" height="70" rx="10" fill="#ECFDF5" stroke="#0D9668" stroke-width="1.5"/>
+<text x="660" y="153" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#065F46">Competition Law</text>
+<text x="660" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#065F46">Funda dominant position</text>
+<text x="660" y="185" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Not obligated to share data</text>
+<rect x="100" y="225" width="600" height="50" rx="10" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1.5"/>
+<text x="400" y="248" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#44403C">Key Dutch housing laws: Woningwet (2015) · Huisvestingswet (2014) · Wet goed verhuurderschap (2023)</text>
+<text x="400" y="265" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#57534E">Wet betaalbare huur (2024) · Wet vaste huurcontracten (2024) · Burgerlijk Wetboek Book 7</text>
+</svg>
+</div>
+
+<h3 class="sst">Complete Dutch housing law reference</h3>
+<div class="ig">
+<div class="ib"><h4>Woningwet (Housing Act) — 2015</h4><p>The foundational law governing housing corporations. Defines their role, accountability, and financial supervision. Separates social activities (DAEB) from commercial activities (niet-DAEB). Requires corporations to focus on their core mission: providing affordable housing. Supervised by the Autoriteit woningcorporaties (Housing Corporation Authority).</p></div>
+<div class="ib"><h4>Huisvestingswet (Housing Allocation Act) — 2014</h4><p>Gives municipalities the power to regulate housing distribution. Allows cities to require housing permits (huisvestingsvergunning) for certain properties. Enables rules on who can rent where (income limits, local connection requirements). Amsterdam, The Hague, Rotterdam use this extensively.</p></div>
+<div class="ib"><h4>Burgerlijk Wetboek Book 7 (Civil Code)</h4><p>The core rental law. Articles 7:201-7:310 cover all rental agreements. Defines tenant/landlord rights and obligations. Covers lease types (indefinite/fixed-term), termination rules, rent increases, maintenance duties, subletting, and dispute resolution. The legal backbone for all rental relationships.</p></div>
+<div class="ib"><h4>Wet goed verhuurderschap (Good Landlordship Act) — July 2023</h4><p>Anti-discrimination in tenant selection. Deposit cap: max 2 months. Written lease mandatory. No tenant fees from landlord's agent. Written tenant rights information required. Service charge compliance. Municipal enforcement powers + fines.</p></div>
+<div class="ib"><h4>Wet betaalbare huur (Affordable Rent Act) — July 2024</h4><p>Expanded WWS regulation to middenhuur (mid-market). ≤186 points = regulated rent. Mandatory WWS disclosure in contracts (Jan 2025). Controversial: some landlords leaving market.</p></div>
+<div class="ib"><h4>Wet vaste huurcontracten (Fixed Contracts Act) — July 2024</h4><p>Made indefinite contracts the default. Temporary contracts banned for most situations. Exceptions only for students, temporary relocation, renovation. Prevents landlords cycling tenants to raise rents.</p></div>
+<div class="ib"><h4>Wet maximering huurprijsverhogingen (Rent Cap Act)</h4><p>Caps annual rent increases in the free sector. Formula: lower of inflation or wage growth + 1%. Currently 4.4% for 2026. Originally temporary, repeatedly extended.</p></div>
+<div class="ib"><h4>Besluit huurprijzen woonruimte</h4><p>The technical regulation behind the WWS points system. Defines exactly how points are calculated for each property characteristic. Updated regularly to reflect policy changes (e.g., removal of penalty points for no outdoor space in 2025).</p></div>
+</div>
+
+<h3 class="sst">Key court cases & legal precedents</h3>
+<div class="ig">
+<div class="ib"><h4>EU Database Directive (96/9/EC)</h4><p>Protects databases with "substantial investment." Housing portals likely qualify. Cannot scrape "whole or substantial part." TDM exception exists but website owners can opt out via robots.txt.</p></div>
+<div class="ib"><h4>Innoweb v Wegener (CJEU 2013) — KEY Dutch case</h4><p>Dutch company ran meta-search on Wegener's car ads. Court: "nearly parasitic." Dedicated meta-search that (1) offers same search functionality, (2) translates queries in real-time, (3) searches whole database = violation. <strong>Directly threatens housing aggregators.</strong></p></div>
+<div class="ib"><h4>Ryanair v PR Aviation (CJEU 2015)</h4><p>Data not database-protected BUT Terms of Service can still block scraping. ToS enforceable as contract law.</p></div>
+<div class="ib"><h4>CV-Online v Melons (CJEU 2021)</h4><p>Making local copies and searching them = still "extraction." BUT database holder must prove damage — difficult if aggregator links back to source.</p></div>
+<div class="ib"><h4>Funda dominance (2018/2020)</h4><p>Court confirmed Funda holds dominant position. But ruled NO abuse — VBO couldn't prove negative effects. Funda not obligated to share MIDAS data.</p></div>
+<div class="ib"><h4>Dutch DPA on scraping</h4><p>Strict: publicly available data NOT automatically free to use. Personal data in listings (names, contacts) = GDPR-protected. AP "critical of commercial data use." Large-scale collection "particularly risky."</p></div>
+</div>
+
+<h3 class="sst">Platform-by-platform scraping legality</h3>
+<div class="legal-r"><strong>🔴 Funda</strong> — PROHIBITS commercial scraping. Explicit ToS. Distil Networks. Court-confirmed dominant. Highest risk.</div>
+<div class="legal-r"><strong>🔴 Pararius, Kamernet</strong> — Likely prohibit via ToS. No public API. Widely scraped in practice. Medium-high risk.</div>
+<div class="legal-r"><strong>🔴 Facebook</strong> — PROHIBITS scraping. Meta enforces aggressively.</div>
+<div class="warn"><strong>🟡 Individual agent websites</strong> — Gray area. Thousands of small sites. Minimal anti-bot. Rarely explicit anti-scraping ToS. Lower risk. This is where Huisly gets to 1,400+ sources.</div>
+<div class="legal-g"><strong>🟢 Brainbay API</strong> — LEGAL with formal NVM partnership. Only authorized data channel.</div>
+<div class="legal-g"><strong>🟢 Browser extension model</strong> — Stronger legal position (user-directed data collection). Uprent uses this.</div>
+
+<!-- ══════════════════════════════════════ SECTION 11 ══════════════════════════════════════ -->
+<hr class="dv" id="s11">
+<h2 class="st">12. Tenant rights, key laws & the Huurcommissie</h2>
+
+<h3 class="sst">Tenant rights & protections</h3>
+<div class="ig">
+<div class="ib"><h4>Security of tenure</h4><p>Indefinite contracts are the default since July 2024. Tenants cannot be evicted without court order. Landlord can only terminate for specific legal reasons: personal use (own use), serious breach by tenant, renovation requiring vacancy, or expiration of a lawful temporary contract. Fixed-term contracts: max 2 years for self-contained units, max 5 years for rooms. These end automatically with proper notice.</p></div>
+<div class="ib"><h4>Rent protection</h4><p>Social housing: rent capped by WWS points system. Mid-market (middenhuur): now also regulated by points (since Affordable Rent Act 2024). Free sector: annual increases capped at CPI + 1% or wage growth + 1% (whichever is lower). 2025 caps: social +5%, mid-market +7.7%, free sector +4.1%. Tenants can challenge initial rent at Huurcommissie within 6 months.</p></div>
+<div class="ib"><h4>Deposit protection</h4><p>Max 2 months' basic rent (since July 2023). Must be returned within 14 days after lease ends. Landlord can only withhold for actual damages and unpaid charges. Must provide written itemized deduction if withholding any amount.</p></div>
+<div class="ib"><h4>Maintenance</h4><p>Landlord: responsible for major repairs and structural maintenance. Tenant: responsible for minor, inexpensive repairs (defined in Besluit kleine herstellingen). If landlord fails to repair: tenant reports in writing → if no response, contact local Huurteam (free) → if unresolved, file with Huurcommissie → Huurcommissie can order repairs or reduce rent.</p></div>
+<div class="ib"><h4>Privacy & access</h4><p>Landlord CANNOT enter the property without tenant's consent (except emergencies). Must give reasonable notice for inspections/repairs. Tenant can change locks (recommended). Violation = tenant can take legal action, and landlords have been fined significantly for unauthorized entry.</p></div>
+<div class="ib"><h4>Anti-discrimination</h4><p>Good Landlordship Act (2023): landlords cannot discriminate based on nationality, race, religion, gender, disability, or any protected characteristic. Selection process must be clear and transparent. Municipalities can enforce, issue fines, and maintain reporting hotlines.</p></div>
+</div>
+
+<h3 class="sst">Key laws governing Dutch housing</h3>
+<div class="ib"><h4>Wet goed verhuurderschap — Good Landlordship Act (July 2023)</h4>
+<ul>
+<li>Prohibits discrimination in tenant selection</li>
+<li>Caps deposits at 2 months' basic rent</li>
+<li>Requires written lease agreements</li>
+<li>Prohibits landlords' agents from charging tenants fees</li>
+<li>Requires landlords to provide tenants with written information about their rights</li>
+<li>Service charges must comply with legal standards</li>
+<li>Municipalities can enforce rules, issue fines, and maintain hotlines</li>
+<li>Applies to private landlords, rental agencies, and employers providing housing</li>
+</ul>
+</div>
+<div class="ib"><h4>Wet betaalbare huur — Affordable Rent Act (July 2024)</h4>
+<ul>
+<li>Extended rent regulation to "middenhuur" (mid-market) segment</li>
+<li>Properties scoring ≤186 WWS points now have capped rents</li>
+<li>More properties now fall under regulated pricing</li>
+<li>Landlords must provide WWS points calculation with new contracts (from Jan 2025)</li>
+<li>Controversial — some landlords have withdrawn properties from rental market</li>
+</ul>
+</div>
+<div class="ib"><h4>Woningwaarderingsstelsel (WWS) — Points system</h4>
+<ul>
+<li>National system since 1979 determining maximum rents</li>
+<li>Points assigned for: size (m²), location (WOZ value), energy label, outdoor space, kitchen quality, bathroom quality, heating type, insulation</li>
+<li>≤186 points = regulated (social or mid-market) with capped rent</li>
+<li>Above 186 points = free sector (market price)</li>
+<li>Better energy labels add points; worse labels reduce them</li>
+<li>Check your property's points via huurprijscalculator or Huurcommissie website</li>
+</ul>
+</div>
+
+<div class="diagram-title">WWS points system — how rent sectors are determined</div>
+<div class="diagram-wrap">
+<svg viewBox="0 0 780 200" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="10" width="240" height="90" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="130" y="35" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#1E40AF">Social Housing</text>
+<text x="130" y="55" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#1E40AF">≤ 143 WWS points</text>
+<text x="130" y="73" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#1E40AF">Max rent: ~€932/mo</text>
+<text x="130" y="90" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#78716C">Max increase: 4.1%</text>
+<rect x="270" y="10" width="240" height="90" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+<text x="390" y="35" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#92400E">Mid-market (middenhuur)</text>
+<text x="390" y="55" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#92400E">143 – 186 WWS points</text>
+<text x="390" y="73" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#92400E">Max rent: ~€1,228/mo</text>
+<text x="390" y="90" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#78716C">Max increase: 6.1%</text>
+<rect x="530" y="10" width="240" height="90" rx="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+<text x="650" y="35" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#991B1B">Free sector (vrije sector)</text>
+<text x="650" y="55" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#991B1B">187+ WWS points</text>
+<text x="650" y="73" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#991B1B">No rent cap (market rate)</text>
+<text x="650" y="90" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#78716C">Max increase: 4.4%</text>
+<text x="390" y="130" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#44403C">Points based on:</text>
+<rect x="40" y="145" width="100" height="40" rx="6" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1"/>
+<text x="90" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#57534E">Size (m²)</text>
+<rect x="155" y="145" width="100" height="40" rx="6" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1"/>
+<text x="205" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#57534E">WOZ value</text>
+<rect x="270" y="145" width="100" height="40" rx="6" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1"/>
+<text x="320" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#57534E">Energy label</text>
+<rect x="385" y="145" width="100" height="40" rx="6" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1"/>
+<text x="435" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#57534E">Kitchen</text>
+<rect x="500" y="145" width="100" height="40" rx="6" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1"/>
+<text x="550" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#57534E">Bathroom</text>
+<rect x="615" y="145" width="120" height="40" rx="6" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1"/>
+<text x="675" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#57534E">Outdoor space</text>
+</svg>
+</div>
+<div class="ib"><h4>Huurtoeslag — Rent allowance</h4>
+<ul>
+<li>Government subsidy for tenants with low income and high rent</li>
+<li>Applies to social housing only (base rent ≤ €879.66 in 2024)</li>
+<li>Amount depends on income, rent, household size</li>
+<li>Applied for via Belastingdienst (Tax Authority) with DigiD</li>
+<li>Must apply within 12 months of starting tenancy</li>
+<li>Must renew annually or report income changes</li>
+</ul>
+</div>
+
+<h3 class="sst">The Huurcommissie (Rent Tribunal)</h3>
+<p class="pr">The Huurcommissie is an <strong>independent, impartial national agency</strong> that resolves disputes between tenants and landlords. It provides an alternative to expensive court proceedings. Decisions are <strong>binding</strong>. It's one of the strongest tenant protections in Europe.</p>
+
+<div class="diagram-title">Huurcommissie dispute resolution process</div>
+<div class="diagram-wrap">
+<svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="a6" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#78716C"/></marker></defs>
+<rect x="10" y="30" width="140" height="55" rx="8" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+<text x="80" y="52" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#991B1B">Problem detected</text>
+<text x="80" y="68" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#991B1B">Rent too high / defect</text>
+<line x1="150" y1="57" x2="180" y2="57" stroke="#78716C" stroke-width="1.5" marker-end="url(#a6)"/>
+<rect x="180" y="30" width="130" height="55" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+<text x="245" y="52" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#92400E">Contact landlord</text>
+<text x="245" y="68" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#92400E">in writing (required)</text>
+<line x1="310" y1="57" x2="340" y2="57" stroke="#78716C" stroke-width="1.5" marker-end="url(#a6)"/>
+<rect x="340" y="30" width="130" height="55" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="405" y="52" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1E40AF">Contact Huurteam</text>
+<text x="405" y="68" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#1E40AF">free municipal advice</text>
+<line x1="470" y1="57" x2="500" y2="57" stroke="#78716C" stroke-width="1.5" marker-end="url(#a6)"/>
+<rect x="500" y="30" width="140" height="55" rx="8" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="570" y="52" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#5B21B6">File at Huurcommissie</text>
+<text x="570" y="68" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#5B21B6">€25 fee / application</text>
+<line x1="640" y1="57" x2="670" y2="57" stroke="#78716C" stroke-width="1.5" marker-end="url(#a6)"/>
+<rect x="670" y="25" width="120" height="65" rx="10" fill="#ECFDF5" stroke="#0D9668" stroke-width="2"/>
+<text x="730" y="50" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#065F46">Binding</text>
+<text x="730" y="66" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#065F46">decision</text>
+<text x="730" y="82" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#065F46">Retroactive effect</text>
+<text x="80" y="120" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Deadline: 6 months</text>
+<text x="80" y="133" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">(free sector initial rent)</text>
+<text x="245" y="120" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Legally required</text>
+<text x="245" y="133" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">first step</text>
+<text x="405" y="120" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Available in most</text>
+<text x="405" y="133" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Dutch cities</text>
+<text x="570" y="120" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Provide: lease, proofs,</text>
+<text x="570" y="133" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">photos, correspondence</text>
+<text x="730" y="120" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">Can force rent</text>
+<text x="730" y="133" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#78716C">reduction + refund</text>
+<rect x="100" y="160" width="600" height="30" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+<text x="400" y="180" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#065F46">Landlord CANNOT retaliate or terminate lease because tenant filed a complaint</text>
+</svg>
+</div>
+<div class="ig">
+<div class="ib"><h4>What it handles</h4>
+<ul>
+<li>Initial rent assessment — is the rent too high?</li>
+<li>Annual rent increase disputes</li>
+<li>Service charge disagreements</li>
+<li>Maintenance/defect complaints</li>
+<li>Primarily for social housing, but also some mid-market and free-sector cases</li>
+</ul>
+</div>
+<div class="ib"><h4>How to use it</h4>
+<ul>
+<li>Cost: €25 for private individuals, €500 for companies</li>
+<li>Submit official application form (via huurcommissie.nl)</li>
+<li>Provide: lease agreement, payment proofs, photos/evidence, correspondence with landlord</li>
+<li>Deadline for free-sector initial rent check: within 6 months of first payment</li>
+<li>Social housing: can challenge rent at any time</li>
+<li>Temporary contracts: up to 6 months after contract ends</li>
+<li>Decision is binding</li>
+<li>Landlord CANNOT retaliate or terminate lease because tenant filed</li>
+</ul>
+</div>
+<div class="ib"><h4>The initial rent assessment — your most powerful tool</h4><p>When you sign a new lease, you have a limited window to challenge the rent. If the property's WWS points score suggests the rent should be lower, the Huurcommissie can force a <strong>permanent rent reduction retroactive to your move-in date</strong>. This is the single most powerful tenant protection in Dutch law. Strategy: secure the housing first, then challenge the rent within the deadline.</p></div>
+<div class="ib"><h4>Local Huurteams</h4><p>Most municipalities have free "rent teams" (huurteams) that advise tenants on rent levels, can negotiate with landlords on your behalf, and can help file Huurcommissie complaints. Free service. Available in Amsterdam, Rotterdam, The Hague, Utrecht, and many other cities. Also: Sociale Raadslieden (legal advisors) offer free 30-minute consultations.</p></div>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 12 ══════════════════════════════════════ -->
+<hr class="dv" id="s12">
+<h2 class="st">13. Terminology, costs, tips & scam prevention</h2>
+
+<h3 class="sst">All costs involved in renting</h3>
+<table>
+<thead><tr><th>Cost</th><th>Amount</th><th>Who pays</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Monthly base rent (kale huur)</strong></td><td>Varies</td><td>Tenant</td><td>The main rent. Excludes service charges and utilities.</td></tr>
+<tr><td><strong>Service charges (servicekosten)</strong></td><td>€50-€250/mo</td><td>Tenant</td><td>Elevator, cleaning, garden maintenance, etc. Must be actual costs — landlord can't profit. Annual settlement required.</td></tr>
+<tr><td><strong>Utilities (gas/water/electric)</strong></td><td>€150-€300/mo</td><td>Tenant</td><td>NOT included in service charges. Tenant arranges own contracts with providers.</td></tr>
+<tr><td><strong>Deposit (waarborgsom)</strong></td><td>Max 2 months' rent</td><td>Tenant (refundable)</td><td>Returned within 14 days of lease end. Since July 2023 law.</td></tr>
+<tr><td><strong>Agency fee (landlord's agent)</strong></td><td>€0 to tenant</td><td>Landlord</td><td>Tenant CANNOT be charged if the agent works for the landlord.</td></tr>
+<tr><td><strong>Agency fee (tenant's own agent)</strong></td><td>1-1.5 months + 21% VAT</td><td>Tenant</td><td>Only if you hire your own rental search agent. Min ~€2,750.</td></tr>
+<tr><td><strong>Municipal registration</strong></td><td>Free</td><td>Tenant</td><td>Required within 5 days of moving. Get BSN number.</td></tr>
+<tr><td><strong>Housing permit (if required)</strong></td><td>Varies</td><td>Landlord/tenant</td><td>Amsterdam requires for mid-rent from July 2025. The Hague has long-running regime.</td></tr>
+<tr><td><strong>Internet/TV</strong></td><td>€30-€60/mo</td><td>Tenant</td><td>Tenant arranges own contract.</td></tr>
+<tr><td><strong>Municipal taxes (gemeentebelasting)</strong></td><td>Varies by city</td><td>Tenant</td><td>Includes waste collection. Low-income exemption possible.</td></tr>
+<tr><td><strong>Water (Waternet/Brabant Water)</strong></td><td>€150-€300/yr</td><td>Tenant</td><td>Annual bill. Low-income exemption possible.</td></tr>
+</tbody>
+</table>
+
+<h3 class="sst">Key Dutch housing terminology</h3>
+<div class="ig3">
+<div class="ib"><h4>Makelaar</h4><p>Real estate agent (title not protected — check certification)</p></div>
+<div class="ib"><h4>Verhuurmakelaar</h4><p>Rental/listing agent (works for landlord)</p></div>
+<div class="ib"><h4>Aankoopmakelaar</h4><p>Buying agent (works for buyer)</p></div>
+<div class="ib"><h4>Huurwoning</h4><p>Rental home</p></div>
+<div class="ib"><h4>Koopwoning</h4><p>Home for sale</p></div>
+<div class="ib"><h4>Kale huur</h4><p>Base/bare rent (without service charges)</p></div>
+<div class="ib"><h4>Servicekosten</h4><p>Service charges (elevator, cleaning, etc.)</p></div>
+<div class="ib"><h4>Waarborgsom</h4><p>Security deposit (max 2 months)</p></div>
+<div class="ib"><h4>Gemeubileerd</h4><p>Furnished</p></div>
+<div class="ib"><h4>Gestoffeerd</h4><p>Semi-furnished (has flooring, curtains, but no furniture)</p></div>
+<div class="ib"><h4>Kaal</h4><p>Unfurnished (bare/empty)</p></div>
+<div class="ib"><h4>Vrije sector</h4><p>Free/private sector (market-rate rent)</p></div>
+<div class="ib"><h4>Sociale huur</h4><p>Social housing (regulated, lower rent)</p></div>
+<div class="ib"><h4>Middenhuur</h4><p>Mid-market rental (recently regulated)</p></div>
+<div class="ib"><h4>Woningcorporatie</h4><p>Housing corporation (manages social housing)</p></div>
+<div class="ib"><h4>Huurcommissie</h4><p>Rent Tribunal (resolves disputes)</p></div>
+<div class="ib"><h4>Huurteam</h4><p>Local free rent advisory team</p></div>
+<div class="ib"><h4>Huurder</h4><p>Tenant</p></div>
+<div class="ib"><h4>Verhuurder</h4><p>Landlord</p></div>
+<div class="ib"><h4>Huurovereenkomst</h4><p>Lease/rental agreement</p></div>
+<div class="ib"><h4>Diplomatieke clausule</h4><p>Diplomatic clause (allows early termination if transferred 50+ km)</p></div>
+<div class="ib"><h4>Huurtoeslag</h4><p>Rent allowance/subsidy from government</p></div>
+<div class="ib"><h4>BSN</h4><p>Burgerservicenummer — citizen service number (like SSN)</p></div>
+<div class="ib"><h4>Kadaster</h4><p>Land registry — check property ownership here</p></div>
+<div class="ib"><h4>WOZ-waarde</h4><p>Government-assessed property value (affects points system)</p></div>
+<div class="ib"><h4>Notaris</h4><p>Notary — handles property transfers and registrations</p></div>
+<div class="ib"><h4>Werkgeversverklaring</h4><p>Employer's statement confirming salary/employment</p></div>
+<div class="ib"><h4>Loting</h4><p>Lottery system (used for some social/mid housing allocation)</p></div>
+<div class="ib"><h4>Antikraak</h4><p>Anti-squat (temporary housing in vacant buildings)</p></div>
+<div class="ib"><h4>Huisvestingsvergunning</h4><p>Housing permit (required in some municipalities)</p></div>
+<div class="ib"><h4>Puntenstelsel / WWS</h4><p>Points system determining maximum rent</p></div>
+<div class="ib"><h4>Kosten koper</h4><p>Buyer's costs (transfer tax, notary fees)</p></div>
+</div>
+
+<h3 class="sst">How to actually find a house — 7 proven strategies</h3>
+<div class="ib"><h4>Strategy 1: Speed is everything</h4><p>Use aggregators (Stekkies, RentSlam, Rentbird, or free Huisly) to get notified within seconds of a new listing. Have your documents ready in a PDF folder on your phone. Pre-write a motivation letter template you can personalize in 2 minutes. Respond within 5-15 minutes of a listing going live. Agents often stop reviewing after the first 20-30 qualified applicants.</p></div>
+<div class="ib"><h4>Strategy 2: Have your "rental CV" ready</h4><p>Create a single PDF with: cover letter introducing yourself, ID/passport copy, employment contract, last 3 payslips, werkgeversverklaring, previous landlord reference. Keep it under 10 pages. Send it with every application. The more complete your initial response, the more seriously agents take you.</p></div>
+<div class="ib"><h4>Strategy 3: Use multiple channels simultaneously</h4><p>Don't rely on one platform. Combine: Funda + Pararius + at least one aggregator + Facebook groups + local makelaar registrations. Some listings only appear on one platform. Set up alerts on all of them.</p></div>
+<div class="ib"><h4>Strategy 4: Consider expanding your search area</h4><p>Instead of competing with 300 people for Amsterdam, try: Diemen, Zaandam, Haarlem, Hoofddorp, Almere, Purmerend. Better supply/demand ratio. Good public transport connections. Often 20-30% cheaper for similar quality.</p></div>
+<div class="ib"><h4>Strategy 5: Register with local makelaars directly</h4><p>Many agents have email lists and send new listings to registered searchers before they go public on platforms. Visit local offices, leave your details, ask to be added to their mailing list. Free service at most agencies. This gives you a head start before aggregators even detect the listing.</p></div>
+<div class="ib"><h4>Strategy 6: Be realistic about your budget</h4><p>Formula: Gross Monthly Salary ÷ 3.5 = Maximum Rent. If you earn €4,500/mo gross → max €1,286/mo rent. Don't waste time on properties above your qualifying range. Landlords will reject you regardless of how good your application is if you don't meet the income requirement.</p></div>
+<div class="ib"><h4>Strategy 7: Consider short-term first</h4><p>If you're new to NL, get a short-term place first (serviced apartment, Airbnb, The Student Hotel, Flatio) while you search for long-term housing from within the country. It's much easier to attend viewings, build a network, and respond quickly when you're already here.</p></div>
+
+<h3 class="sst">Scam prevention</h3>
+<div class="ig">
+<div class="ib"><h4>Red flags</h4>
+<ul>
+<li>Rent is too good to be true (huge apartment, city center, low price)</li>
+<li>Landlord is "abroad" and can't show the property</li>
+<li>Asked to pay deposit before viewing or signing contract</li>
+<li>Only accepts cash payment (no bank transfer)</li>
+<li>Only provides email address and mobile phone — no verifiable identity</li>
+<li>Pressure to act immediately ("other people are interested")</li>
+<li>Listing photos look generic or are stolen from other sites</li>
+<li>The landlord says you cannot register at the address (illegaal)</li>
+</ul>
+</div>
+<div class="ib"><h4>Verification steps</h4>
+<ul>
+<li>Check property ownership via Kadaster (kadaster.nl) — small fee</li>
+<li>Verify the landlord/agent's identity</li>
+<li>Always view the property in person (or send someone you trust)</li>
+<li>Never pay before signing a written contract</li>
+<li>Pay by bank transfer only (creates paper trail)</li>
+<li>Check if the address allows municipal registration</li>
+<li>Talk to neighbors if possible</li>
+<li>Use established platforms (Funda, Pararius) over Facebook groups for lower scam risk</li>
+<li>If the agent is NVM/VBO-registered, they're legitimate</li>
+</ul>
+</div>
+</div>
+
+<div class="legal-g"><strong>Useful resources:</strong> Huurcommissie (huurcommissie.nl) — rent disputes · Wooninfo.nl — tenant rights info · Juridisch Loket (juridischloket.nl) — free legal advice · Local Huurteams — free rent advice · Autoriteit Consument & Markt (ACM) — consumer protection · Kadaster (kadaster.nl) — property ownership verification · Belastingdienst (belastingdienst.nl) — huurtoeslag applications · EP-Online (ep-online.nl) — energy label lookup</div>
+
+<!-- ══════════════════════════════════════ SECTION 13 ══════════════════════════════════════ -->
+<hr class="dv" id="s13">
+<h2 class="st">14. 2026 regulatory changes & market dynamics</h2>
+<p class="sd">Critical changes that affect your platform and every renter in the Netherlands right now.</p>
+
+<h3 class="sst">2026 rent increase caps (official government figures)</h3>
+<table>
+<thead><tr><th>Sector</th><th>Max increase 2026</th><th>Effective date</th><th>How calculated</th></tr></thead>
+<tbody>
+<tr><td><strong>Social housing (sociale huur)</strong></td><td>4.1%</td><td>July 1, 2026</td><td>3-year avg inflation (3.6%) + 0.5%</td></tr>
+<tr><td><strong>Mid-market (middenhuur)</strong></td><td>6.1%</td><td>January 1, 2026</td><td>Collective labour agreement wages + 1%</td></tr>
+<tr><td><strong>Free sector (vrije sector)</strong></td><td>4.4%</td><td>January 1, 2026</td><td>Lower of inflation or wage growth + 1%</td></tr>
+</tbody>
+</table>
+<p class="pr">These are <strong>maximum</strong> caps — landlords cannot exceed them but can choose to increase less or not at all. Most landlords and housing associations fully utilize the maximum. Landlords must give tenants at least 2 months written notice before any increase. Tenants can challenge any increase above these caps at the Huurcommissie.</p>
+
+<h3 class="sst">The 187-point threshold — the most important number in Dutch housing</h3>
+<div class="ib"><h4>What changed</h4><p>Since the Affordable Rent Act (July 2024), any property scoring <strong>under 187 WWS points</strong> has a legally capped maximum rent of approximately <strong>€1,228.07/month</strong>. Previously the threshold was 144 points. This expanded regulation to cover a massive segment of "middle-sector" properties that were previously free-market. For a typical 50m² apartment with a standard kitchen, small balcony, and Energy Label C — it is mathematically almost impossible to reach 187 points. This means many apartments currently rented at €1,500-€1,800 are technically in the regulated sector and tenants may be overpaying.</p></div>
+
+<h3 class="sst">The "bust strategy" — what tenants are doing</h3>
+<div class="ib"><h4>How it works</h4><p>An aggressive but legal strategy gaining popularity: <strong>(1)</strong> Sign the lease to secure the property at the landlord's asking price. <strong>(2)</strong> Move in. <strong>(3)</strong> Within 6 months, file a rent assessment request with the Huurcommissie. <strong>(4)</strong> If the WWS points show the property should be cheaper, the Huurcommissie forces a permanent rent reduction retroactive to day one. The landlord must refund the overpaid amount. This is perfectly legal — the law explicitly protects tenants from retaliation. <strong>Platform opportunity:</strong> A tool that calculates WWS points for any listing and shows whether the asking rent is above the legal maximum would be extremely valuable to tenants.</p></div>
+
+<h3 class="sst">Indefinite contracts are now the default</h3>
+<div class="ib"><h4>Wet vaste huurcontracten</h4><p>Temporary contracts (previously common as "Model B" — max 2 years) are now <strong>banned for most situations</strong>. Indefinite contracts (onbepaalde tijd) are the standard again. Exceptions only for: student housing, temporary relocation, specific renovation situations. If a landlord offers you a 1-year contract without a valid legal reason, that clause may be null and void — you may legally have a permanent contract without knowing it. This dramatically shifts power from landlords to tenants.</p></div>
+
+<h3 class="sst">Mandatory WWS disclosure (January 2025)</h3>
+<div class="ib"><h4>What landlords must now provide</h4><p>Since January 1, 2025, <strong>ALL landlords</strong> — including private/free-sector — must provide a written WWS points calculation alongside every new rental contract. This is the first time private-sector landlords must transparently disclose how rent is determined. Non-compliance can result in municipal fines. Municipalities now have enforcement power.</p></div>
+
+<h3 class="sst">Supply crisis — landlords leaving the market</h3>
+<div class="ib"><h4>The paradox</h4><p>While the new regulations protect tenants, they've had a paradoxical effect on supply. Many landlords are <strong>withdrawing properties from the rental market</strong> — selling them, converting to short-term tourist rentals, or leaving them vacant waiting for better conditions. This has led to record-high apartment <strong>sales</strong> (as investment properties are offloaded) and a significant drop in rental supply. Pararius reports <strong>+7.9% year-over-year rent increases</strong> and a <strong>36.4% drop in available rental supply</strong>. Average rents in Amsterdam now reach €1,830/month. Approximately 90,000 homes across the Netherlands sit vacant while 400,000+ people are searching.</p></div>
+
+<h3 class="sst">Huurtoeslag (rent allowance) — 2026 expansion</h3>
+<div class="ib"><h4>Major changes</h4><p>From 2026, the rent ceiling for huurtoeslag eligibility has been effectively removed — you can apply even if your rent is higher than the previous ~€900 cap, as long as you meet income/asset conditions. An estimated <strong>170,000 additional households</strong> now qualify. Service costs are no longer counted — only base rent (kale huur). Applications can be backdated to January 1, 2026. Studios now qualify under age 23. Apply via Mijn Toeslagen on the Belastingdienst website with DigiD.</p></div>
+
+<h3 class="sst">What this means for your platform</h3>
+<div class="ig">
+<div class="ib"><h4>Feature opportunity: WWS points calculator</h4><p>Build a tool that estimates a listing's WWS point score from its characteristics (m², energy label, WOZ value, outdoor space). Show users whether the asking rent exceeds the legal maximum. This is a massive differentiator no current aggregator offers properly.</p></div>
+<div class="ib"><h4>Feature opportunity: rent fairness indicator</h4><p>For every scraped listing, calculate whether the rent is fair relative to the sector (social/mid/free). Flag listings where tenants could potentially challenge the rent via Huurcommissie. This creates unique value beyond speed-of-notification.</p></div>
+<div class="ib"><h4>Feature opportunity: supply tracking dashboard</h4><p>Track the number of available listings over time across platforms. Show the supply crisis in real data. Alert users when supply spikes (e.g., after September when academic rental market shifts). Provide market intelligence that no competitor currently offers.</p></div>
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 14 ══════════════════════════════════════ -->
+<hr class="dv" id="s14">
+<h2 class="st">15. Strategic recommendations for your platform</h2>
+<div class="ig">
+<div class="ib"><h4>1. Target individual agent websites first</h4><p>Thousands of makelaar sites with minimal anti-bot, no explicit anti-scraping ToS, low legal risk. Build scrapers for top 200-500 to create differentiation.</p></div>
+<div class="ib"><h4>2. Consider browser extension model</h4><p>Like Uprent. Stronger legal position. Captures from any site including Funda/Pararius without server-side risk.</p></div>
+<div class="ib"><h4>3. Explore Brainbay partnership</h4><p>Only legitimate API. Build agent-facing tools as trojan horse for consumer data access.</p></div>
+<div class="ib"><h4>4. Use Apify for MVP</h4><p>Ready-made Funda, Pararius, Kamernet scrapers (~€0.70/1K). Shifts legal exposure partially to scraping service.</p></div>
+<div class="ib"><h4>5. Differentiate beyond alerts</h4><p>Alert market is saturated. Findify = auto-apply. Luntero = AI analytics. Uprent = extension. Find unique angle: auto-translate, rent-fairness analysis, niche focus.</p></div>
+<div class="ib"><h4>6. Legal risk mitigation</h4><p>Link back to source. Don't reproduce photos. Focus on metadata. Consult Dutch IP/tech lawyer. GDPR compliance for personal data.</p></div>
+</div>
+
+<div class="warn"><strong>⚠ Final note:</strong> Every existing Dutch aggregator operates in a legal gray area — all scrape without authorization. No aggregator has been publicly sued by Funda/Pararius yet (aggregators drive traffic back to sources). But the Innoweb v Wegener ruling (2013) specifically found meta-search of a protected database violates EU law. Proceed with legal counsel. Useful resources: Huurcommissie (huurcommissie.nl) · Wooninfo.nl · Juridisch Loket (juridischloket.nl) · Kadaster (kadaster.nl) · Local Huurteams.</div>
+
+</div>
+
+<footer>
+<div class="footer-inner">
+<div class="footer-left">
+<div class="footer-name">Rami Al-Hakimi</div>
+<div class="footer-role">Research & Development · Dutch Housing Market Intelligence</div>
+<div class="footer-copy">© 2026 Rami Al-Hakimi. All rights reserved.</div>
+</div>
+<div class="footer-links">
+<a class="footer-link" href="https://www.linkedin.com/in/rami-hakimi" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+LinkedIn
+</a>
+<a class="footer-link" href="https://github.com/rami-hakimi" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+GitHub
+</a>
+</div>
+</div>
+<hr class="footer-divider">
+<div class="footer-inner" style="padding-top:.5rem;">
+<p style="font-size:.68rem;color:#5a5a54;max-width:700px;">This research document was compiled through extensive analysis of publicly available information about the Dutch housing market. It is intended as a competitive intelligence resource for platform development purposes. Always consult a qualified Dutch legal professional before implementing any scraping or aggregation strategy.</p>
+</div>
+</footer>
+
+<script>
+function f(c){document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');document.querySelectorAll('.pc,.cat-label').forEach(e=>{if(c==='all'){e.classList.remove('hidden')}else{const d=e.dataset.cat;if(d){e.classList.toggle('hidden',d!==c)}else{e.classList.add('hidden')}}});}
+
+// Scroll reveal animation
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.ib,.pc,.stat,.flow,.warn,.legal-r,.legal-g').forEach(el=>{el.classList.add('reveal');observer.observe(el);});
+
+// Active nav link on scroll
+const sections=document.querySelectorAll('[id^="s"]');
+const navLinks=document.querySelectorAll('.nav-link');
+window.addEventListener('scroll',()=>{let current='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100){current=s.id;}});navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+current)l.classList.add('active');});});
+</script>
+</body>
+</html>
