@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dutch Rental Aggregators — Complete Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a1a;--s1:#12122a;--s2:#1a1a2e;--brd:#ffffff08;--t:#e5e7eb;--t2:#b0b8c8;--t3:#6b7280;--pu:#a78bfa;--pk:#f472b6;--gn:#22c55e;--bl:#60a5fa;--or:#f59e0b;--rd:#ef4444;--tl:#34d399}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+a{color:var(--bl);text-decoration:none}
+
+.hdr{background:linear-gradient(135deg,#0f0f2a,#1a0a2e 50%,#0a1a2e);border-bottom:1px solid var(--brd);padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.hdr h1{font-size:22px;font-weight:800;background:linear-gradient(135deg,var(--pu),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr p{font-size:11px;color:var(--t3);margin-top:2px}
+.hdr-r{display:flex;align-items:center;gap:8px;font-size:11px}
+.hdr-r .cr{color:var(--pu);font-weight:700;font-size:12px}
+.lnk{padding:3px 10px;border-radius:5px;font-size:11px}
+.lnk-l{background:#60a5fa15;border:1px solid #60a5fa33;color:var(--bl)}
+.lnk-g{background:#fff1;border:1px solid #fff2;color:#9ca3af}
+
+.wrap{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+.tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;margin-right:4px;margin-bottom:3px}
+.p{color:var(--t2);font-size:14px;line-height:1.8;margin:0 0 16px}
+h2{font-size:20px;font-weight:800;margin:0 0 6px;color:var(--t)}
+h3{font-size:15px;font-weight:700;margin:20px 0 8px;color:var(--t)}
+
+/* Aggregator Card */
+.agg{background:var(--s1);border:1px solid var(--brd);border-radius:14px;padding:24px;margin-bottom:20px;position:relative;overflow:hidden}
+.agg::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.agg-hdr{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.agg-hdr h2{font-size:22px}
+.agg-hdr .tp{color:var(--or);font-size:13px;margin-top:2px}
+.agg-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--t3);margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--brd)}
+.agg-desc{font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:16px}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:18px}
+.feat{background:var(--s2);border-radius:8px;padding:10px 12px;border:1px solid var(--brd)}
+.feat .fl{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.feat .fv{font-size:13px;font-weight:700}
+
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+@media(max-width:600px){.pros-cons{grid-template-columns:1fr}}
+.pros,.cons{border-radius:10px;padding:14px 16px}
+.pros{background:#22c55e08;border:1px solid #22c55e22}
+.cons{background:#ef444408;border:1px solid #ef444422}
+.pros h4{color:var(--gn);font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.cons h4{color:var(--rd);font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.pros li,.cons li{font-size:13px;color:var(--t2);padding:3px 0;list-style:none}
+.pros li::before{content:'✓ ';color:var(--gn);font-weight:700}
+.cons li::before{content:'✗ ';color:var(--rd);font-weight:700}
+
+.best-for{background:var(--pu)10;border:1px solid var(--pu)22;border-radius:8px;padding:10px 14px;font-size:13px;color:var(--t2)}
+.best-for strong{color:var(--pu)}
+
+.verdict{background:var(--s2);border-radius:8px;padding:12px 16px;margin-top:14px;border-left:3px solid var(--pu)}
+.verdict .vl{font-size:11px;color:var(--pu);font-weight:700;text-transform:uppercase;margin-bottom:3px}
+.verdict .vt{font-size:13px;color:var(--t2);line-height:1.6}
+
+/* Compare table */
+.tbl-wrap{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:800px}
+th{text-align:left;padding:8px 10px;background:var(--s2);color:var(--pu);font-weight:700;font-size:10px;text-transform:uppercase;position:sticky;top:0}
+td{padding:8px 10px;border-bottom:1px solid #ffffff06;color:#d1d5db}
+tr:nth-child(even){background:#0f0f1a}
+tr:nth-child(odd){background:var(--s1)}
+.ck{color:var(--gn);font-weight:700}
+.no{color:#333}
+
+.ftr{background:#0d0d1f;border-top:1px solid var(--brd);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px}
+.ftr a{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:6px;font-size:11px}
+.ftr .fl{background:#60a5fa10;border:1px solid #60a5fa22;color:var(--bl)}
+.ftr .fg{background:#fff1;border:1px solid #fff2;color:#9ca3af}
+</style>
+</head>
+<body>
+<header class="hdr">
+<div>
+<div style="display:flex;align-items:center;gap:10px">
+<span style="font-size:26px">🏠</span>
+<div><h1>Dutch Rental Aggregators</h1><p>Complete Deep-Dive Comparison — Every Aggregator, Every Feature, Pros &amp; Cons</p></div>
+</div>
+</div>
+<div class="hdr-r">
+<span style="color:var(--t3)">Research by</span>
+<span class="cr">Rami Al-Hakimi</span>
+<a href="https://www.linkedin.com/in/rami-hakimi" target="_blank" class="lnk lnk-l">LinkedIn</a>
+<a href="https://github.com/rami-hakimi" target="_blank" class="lnk lnk-g">GitHub</a>
+</div>
+</header>
+
+<div class="wrap" id="app"></div>
+
+<footer class="ftr">
+<div><span style="color:var(--t3)">Research by</span> <strong style="color:var(--t);margin-left:4px">Rami Al-Hakimi</strong></div>
+<div>
+<a href="https://www.linkedin.com/in/rami-hakimi" target="_blank" class="fl">LinkedIn</a>
+<a href="https://github.com/rami-hakimi" target="_blank" class="fg">GitHub</a>
+</div>
+</footer>
+
+<script>
+const T=(t,c)=>`<span class="tag" style="background:${c}18;color:${c};border:1px solid ${c}33">${t}</span>`;
+const CK='<span class="ck">✓</span>';
+const NO='<span class="no">—</span>';
+
+const A=[
+{name:"Stekkies",color:"#f472b6",price:"€29.95/mo (€16.65 on 3mo)",priceTier:"€€",url:"stekkies.com",tp:"4.6/5 (2,500+ reviews)",sources:"1,000+ websites",alerts:"Push + Email (30s)",speed:"~30 seconds",users:"Tens of thousands",founded:"~2019",lang:"EN + NL",
+desc:"The volume king. Stekkies scans 1,000+ Dutch rental websites every minute and sends near-instant alerts when a new listing matches your filters. It focuses purely on speed and coverage — no auto-apply, no chat, no CRM. You get the listing fast, but everything after that (applying, messaging, tracking) is on you.",
+features:[["Sources","1,000+ sites scanned every minute"],["Alert Speed","~30 seconds after detection"],["Channels","Push notifications + Email"],["Feed","Browsable listing feed with filters"],["Free Tier","Daily email digest (paid for instant)"],["Scam Filter","Basic (filters paid-site listings)"],["Coverage","All 12 NL provinces"],["Property Types","Apartments, rooms, studios, anti-squat"],["Facebook","Monitors Facebook groups"],["Kamernet","Includes Kamernet listings"],["Pet Filter","Yes (pet-friendly filter)"],["Paid Sites Toggle","Can enable/disable paid-source listings"]],
+pros:["Massive coverage — 1,000+ sources scanned every minute","Fast alerts (~30 seconds) among the best in market","Includes Facebook group monitoring (unique)","Pet-friendly filter (rare among aggregators)","Toggleable paid-site listings to avoid double subscriptions","Clean, well-designed app with Apple Watch support","14-day money-back guarantee","2,500+ Trustpilot reviews — proven at scale","Includes Kamernet and Facebook — sources many miss","Flexible pricing tiers (monthly, 2mo, 3mo)"],
+cons:["No auto-apply — you manually apply on each platform","No in-app chat with landlords","No application tracking/CRM","No contract review or WWS estimation","Expensive at €29.95/mo (Findify is €19.99)","Some users report 50+ people already applied by the time they react","Redirects to source platforms (may need separate paid subscriptions)","No scam detection beyond basic filtering","Free tier is just daily email — not competitive","Some Trustpilot reviews say Huisly (free) works better"],
+bestFor:"Renters who want maximum market coverage and don't mind doing the applying/messaging/tracking manually. Best for locals who know the Dutch market.",
+verdict:"The widest net you can cast. If your strategy is 'see everything, react fast, handle the rest myself' — Stekkies is the tool. But if you want automation or end-to-end workflow, look elsewhere."},
+
+{name:"Rentbird",color:"#fb923c",price:"€29/mo",priceTier:"€€",url:"rentbird.nl",tp:"4.6/5 (1,600+ reviews)",sources:"1,400+ websites",alerts:"Push + Email",speed:"Minutes (variable)",users:"Large (established brand)",founded:"~2017",lang:"EN + NL",
+desc:"The established veteran. Rentbird claims the widest source coverage at 1,400+ sites — including many small makelaar/agency websites that others miss. Its unique feature is partner/shared search, letting couples or roommates collaborate. However, it's purely an alert tool with no automation.",
+features:[["Sources","1,400+ sites (largest claim)"],["Alert Speed","Minutes (some report 30-min delays)"],["Channels","Push + Email"],["Partner Search","Share search with partner/roommate"],["Free Tier","No"],["Scam Filter","No"],["Coverage","Nationwide"],["Property Types","Apartments, rooms, houses"],["Agency Coverage","Best for small agency/makelaar sites"],["Mobile App","Yes (iOS + Android)"]],
+pros:["Widest source coverage claim (1,400+ sites)","Partner/shared search — unique feature for couples","Most established brand — longest track record","Likely scrapes many small agency sites others miss","Consistent alerts across push and email","Available in English — good for expats","Strong Trustpilot rating (4.6, 1,600+ reviews)"],
+cons:["Some users report significant delays (up to 30 minutes vs competitors)","No auto-apply or automation whatsoever","No scam filtering or trust scoring","No in-app messaging or application tracking","€29/mo with no free tier","No WhatsApp alerts","After getting alert, everything happens outside the app","Speed reputation is weaker than Stekkies/Findify/Woonbot"],
+bestFor:"Couples or roommates who want shared search access. Renters who prioritize breadth of sources over speed of alerts.",
+verdict:"The widest source coverage but not the fastest. The partner search is genuinely unique. However, the speed gap vs Stekkies/Findify/Woonbot means you may be seeing listings after 50+ people already applied."},
+
+{name:"RentSlam",color:"#34d399",price:"€29.95/mo",priceTier:"€€",url:"rentslam.com",tp:"4.2/5",sources:"1,000+ platforms",alerts:"Email + WhatsApp",speed:"Within minutes",users:"40,000+",founded:"~2018",lang:"EN + NL",
+desc:"The speed specialist with a unique channel: WhatsApp alerts. RentSlam focuses on getting you listings fast via email and WhatsApp (the only major aggregator offering WhatsApp). Claims AI-powered matching but the AI is really NLP-based listing-to-criteria matching, not scraping intelligence.",
+features:[["Sources","1,000+ platforms"],["Alert Speed","Within minutes"],["Channels","Email + WhatsApp (unique!)"],["AI Matching","NLP-based filter matching"],["Free Tier","No (14-day free trial)"],["Scam Filter","No"],["Coverage","Nationwide"],["Property Types","Apartments, rooms, houses, studios"],["WhatsApp","Yes — only major aggregator with WhatsApp"],["Users","40,000+ active"]],
+pros:["WhatsApp alerts — only aggregator offering this channel","Speed reputation — alerts within minutes","40,000+ users — proven product-market fit","AI-powered matching (NLP ranking of listings)","14-day free trial available","Available in English","Good for renters who live on WhatsApp"],
+cons:["No push notifications (email + WhatsApp only)","No auto-apply or automation","No scam detection","No application tracking","No in-app chat","€29.95/mo — most expensive tier","'AI-powered' is marketing — it's NLP matching, not actual AI scraping","No free tier beyond trial","Some users find WhatsApp alerts noisy"],
+bestFor:"Renters who want instant WhatsApp notifications and prefer that channel over push/email. Speed-focused renters who don't need automation.",
+verdict:"The WhatsApp channel is a genuine differentiator — messages land instantly and feel personal. But beyond that unique channel, RentSlam offers the same alert-only experience as Stekkies/Rentbird at the same price."},
+
+{name:"Findify",color:"#60a5fa",price:"€19.99/mo (3-day free trial)",priceTier:"€",url:"findify.nl",tp:"4.8/5 (10 reviews — new)",sources:"Verified agencies only",alerts:"Push + Email + Telegram (30s)",speed:"30 seconds",users:"Growing (newer)",founded:"~2024",lang:"EN + NL",
+desc:"The most feature-rich aggregator as of 2026. Findify doesn't just alert — it lets you auto-apply with one tap, chat with landlords inside the app, and estimates WWS points to check if rent is fair. Now also supports Telegram alerts and shared search for up to 3 family members. Swipe-based browsing (like Tinder for rentals). Only sources from verified agencies.",
+features:[["Sources","Verified agencies only (narrower)"],["Alert Speed","30 seconds (fastest claim)"],["Channels","Push + Email + Telegram (2026 update)"],["Auto-Apply","Yes — one-tap application (10-15 seconds)"],["In-App Chat","Yes — landlord replies appear in-app"],["WWS Estimation","Yes — checks if rent is legally fair"],["Scam Filter","Yes — verified agencies only"],["Shared Search","Up to 3 family members (2026 update)"],["Swipe Browsing","Tinder-like swipe to browse listings"],["Free Tier","3-day free trial"],["Coverage","Funda, Pararius, Kamernet, Vesteda, etc."],["Market Data","Per-city price analytics and competition data"]],
+pros:["Auto-apply — one tap sends your profile + application letter","In-app landlord chat — no email chaos, everything in one place","WWS point estimation — unique: checks if rent exceeds legal maximum","Cheapest paid aggregator at €19.99/mo","30-second alerts — tied for fastest","Telegram alerts (2026) — third channel beyond push/email","Shared search for up to 3 family members (2026) — more than Rentbird's 1","Swipe-based browsing (2026) — fastest way to browse listings","Scam-free by design (verified agencies only)","Per-city market analytics (avg price, supply trends)","Modern, well-designed app","3-day free trial"],
+cons:["Verified agencies only — misses private landlords, Facebook groups, small sites","Narrower coverage than Stekkies (1,000+) or Rentbird (1,400+)","Very new — only 10 Trustpilot reviews (unproven at scale)","No WhatsApp alerts (has Telegram instead)","No application CRM/dashboard","No browser extension","No contract review AI","Auto-apply may violate some platform ToS (legal gray area)"],
+bestFor:"Renters who want end-to-end automation: see listing → apply → chat with landlord — all inside one app. Those who care about rent fairness (WWS).",
+verdict:"The most innovative aggregator feature-wise. Auto-apply + in-app chat + WWS estimation is the most complete workflow. But the verified-agency-only sourcing means you're fishing in a smaller pond than Stekkies/Rentbird."},
+
+{name:"RentHunter",color:"#f59e0b",price:"€29/mo",priceTier:"€€",url:"renthunter.nl",tp:"4.0/5",sources:"Multi-platform",alerts:"Email only",speed:"Minutes to hours",users:"Growing",founded:"~2020",lang:"EN",
+desc:"Built specifically for expats and international students. RentHunter's main selling point is scam protection — it filters out suspicious listings before showing them to you. However, it's email-only (no push), has no automation, and is essentially a filtered version of what Stekkies offers.",
+features:[["Sources","Multi-platform aggregation"],["Alert Speed","Email-based (slower)"],["Channels","Email only"],["Scam Filter","Yes — filters suspicious listings"],["Free Tier","No"],["Coverage","Major cities"],["Property Types","Apartments, rooms, houses"],["Language","English-first"],["Auto-Apply","No"],["Chat","No"]],
+pros:["Scam protection — actively filters fake listings","Built for expats — English-first, understands international needs","Clean, simple interface","Good educational content about Dutch rental market","Reasonable pricing at €29/mo"],
+cons:["Email only — no push notifications (significantly slower)","No auto-apply or automation","No in-app chat or application tracking","Scam filter is basic (filters obvious fakes, not AI-powered)","Higher price than Findify for fewer features","No WhatsApp","No partner search","No WWS or contract tools","Not competitive on speed — email delays mean you're late"],
+bestFor:"Expats and international students who prioritize scam protection and English-language support over speed and automation.",
+verdict:"A decent expat-focused option but hard to justify at €29/mo when Findify offers more features for €19.99/mo. The email-only alerting is a real disadvantage in a market where minutes matter."},
+
+{name:"Huisly",color:"#22c55e",price:"FREE",priceTier:"Free",url:"huisly.nl",tp:"5.0/5 (small sample)",sources:"1,400+ sources",alerts:"Push notifications",speed:"Competitive",users:"Growing fast",founded:"~2023",lang:"EN + NL",
+desc:"The free disruptor. Huisly matches Rentbird's 1,400+ source coverage but charges nothing. Native iOS and Android apps with push notifications. Also covers the buying market. The trade-off: no auto-apply, no chat, no advanced features. But for pure alert aggregation, it's hard to argue with free.",
+features:[["Sources","1,400+ (matching Rentbird)"],["Alert Speed","Push notifications (competitive)"],["Channels","Push (native app)"],["Price","Completely FREE"],["Coverage","Nationwide + buying market"],["Property Types","Apartments, rooms, houses, buying"],["iOS App","Yes (native)"],["Android App","Yes (native)"],["Scam Filter","No"],["Auto-Apply","No"],["Buying Market","Yes (unique among aggregators)"]],
+pros:["Completely free — no subscription needed","1,400+ sources — matches Rentbird's coverage","Native iOS and Android apps with push notifications","Also covers buying market (unique)","5-star Trustpilot rating (small but perfect)","Clean, modern app design","No paid-site redirect headaches","Disrupting the paid aggregator model","Some Stekkies users say Huisly works better (for free)"],
+cons:["No auto-apply","No in-app chat or messaging","No application tracking/CRM","No scam filtering","No WhatsApp alerts","No partner search","No WWS or contract tools","Newer — less proven at scale","Business model sustainability unclear (how does free last?)","Limited advanced filters compared to paid competitors"],
+bestFor:"Anyone who wants broad aggregation coverage without paying. The default starting point for all renters before considering paid options.",
+verdict:"The elephant in the room for paid aggregators. If Huisly's coverage and speed match Stekkies/Rentbird (and early signals suggest they do), the paid aggregators have a serious business model problem. Start here."},
+
+{name:"Uprent",color:"#a78bfa",price:"Free + Confident plan (paid)",priceTier:"Freemium",url:"uprent.nl",tp:"4.7/5 (41 reviews)",sources:"239 platforms (unique-only)",alerts:"Push + Email",speed:"Competitive",users:"Growing",founded:"~2023",lang:"EN + NL",
+desc:"The most technically innovative platform. Uprent's AI agent 'Bob' auto-detects new listings and auto-submits viewing requests. It has a Chrome browser extension, an application CRM dashboard, and an AI contract review tool. It only aggregates from platforms with unique listings (avoids re-aggregators). Free tier is generous.",
+features:[["Sources","239 platforms (unique-only policy)"],["Alert Speed","Push + Email"],["AI Agent 'Bob'","Auto-applies to matching listings"],["Browser Extension","Chrome extension for one-click apply"],["Application CRM","Dashboard tracking all applications"],["Contract Review","AI checks rental contracts for unfair clauses"],["Free Tier","Yes (browsing + alerts + basic features)"],["Paid Plan","Confident plan (AI agent + advanced filters)"],["Coverage","Nationwide"],["Property Types","Apartments, rooms, houses, studios"],["Active Listings","13,000+"],["Unique-Only","Avoids re-aggregator platforms"]],
+pros:["AI auto-apply agent 'Bob' — most advanced automation","Chrome browser extension — apply on other sites in one click","Application CRM — track every application in one dashboard","Contract review AI — checks for unfair clauses before you sign","Generous free tier (browse + alerts)","239 unique-only sources — no duplicate aggregator listings","13,000+ active listings","4.7/5 Trustpilot — users love the dashboard","One-on-one call with rental expert available","Partner/shared search supported"],
+cons:["239 sources — smaller than Stekkies (1,000+) or Rentbird (1,400+)","Some users report bugs (duplicate applications, lag)","Auto-apply 'Bob' can be aggressive (applies to wrong listings)","Newer platform — still maturing","Paid tier pricing not always transparent","No WhatsApp alerts","No in-app landlord chat","Website sometimes lags","No WWS estimation"],
+bestFor:"Tech-savvy renters who want maximum automation. Those who apply to many listings and need a CRM to track everything. Renters worried about unfair contract clauses.",
+verdict:"The most feature-packed aggregator overall. The auto-apply agent, browser extension, CRM, and contract review are each individually unique — combined, no one else comes close. The trade-off is fewer sources (239 vs 1,000+) and occasional bugs."},
+
+{name:"Luntero",color:"#60a5fa",price:"FREE",priceTier:"Free",url:"luntero.com",tp:"No rating yet",sources:"50+ platforms",alerts:"Email alerts",speed:"Standard",users:"Growing",founded:"~2024",lang:"EN + NL + more",
+desc:"A free, multilingual aggregator focused on research and comparison tools rather than speed. Luntero's standout features are AI listing summaries, side-by-side listing comparison, and a comprehensive platform directory reviewing 233+ Dutch rental sites. It's more of a research hub than an alert engine.",
+features:[["Sources","50+ platforms"],["Alert Speed","Email (standard)"],["Channels","Email"],["AI Summaries","AI-generated listing summaries"],["Comparison Tool","Side-by-side listing comparison"],["Platform Directory","Reviews of 233+ rental platforms"],["Map Search","Interactive map with filters"],["Multilingual","Multiple languages"],["Free","Completely free"],["Guides","Comprehensive rental guides/handbooks"],["Price","Free"],["Smart Messages","Template messages for landlords"]],
+pros:["Completely free","AI-generated listing summaries — quick understanding","Side-by-side listing comparison tool (unique)","Platform directory with 233+ rental site reviews (unique)","Multilingual — great for non-Dutch/English speakers","Comprehensive rental guides and handbooks","Interactive map with neighborhood data","Smart message templates for contacting landlords","20,000+ listings aggregated","Research-first approach helps informed decisions"],
+cons:["Only 50+ sources — far fewer than competitors","Email-only alerts — no push notifications","No auto-apply","No in-app chat","No application tracking","No scam scoring","Speed is not competitive for hot markets","No mobile app (web only)","No Trustpilot reviews yet — unproven","Better as a research tool than an alert tool"],
+bestFor:"Renters who want to research the market thoroughly before acting. Non-Dutch speakers who need multilingual support. Anyone wanting to compare listings side-by-side.",
+verdict:"The best research tool, not the best alert tool. Use Luntero for neighborhood research, platform discovery, and listing comparison — then use a speed-focused aggregator (Stekkies/Findify/Woonbot) when ready to act."},
+
+{name:"Woonbot",color:"#f59e0b",price:"€15-19/mo",priceTier:"€",url:"woonbot.nl",tp:"4.8/5 (263 reviews)",sources:"1,000+ websites",alerts:"Email (30 seconds)",speed:"30 seconds",users:"2,847 active",founded:"~2023",lang:"NL only",
+desc:"An AI-driven, Dutch-language aggregator that scans 1,000+ sites daily and sends email alerts within 30 seconds. Woonbot is the cheapest paid aggregator that offers real speed. It positions itself as a simple 3-step tool: set your profile, the bot scans 24/7, you get emails with contact details. Claims users find homes within 6 weeks on average.",
+features:[["Sources","1,000+ sites scanned daily"],["Alert Speed","30 seconds (email)"],["Channels","Email only"],["AI Matching","AI-powered listing matching"],["Price","€19/mo or €15/mo (3-month plan = €45)"],["Free Tier","No"],["Coverage","Nationwide"],["Property Types","Apartments, rooms, houses"],["Language","Dutch only"],["Users","2,847 active"],["Success Rate","Claims 6-week average to find home"],["Video Testimonials","Real user video reviews"]],
+pros:["30-second email alerts — tied for fastest in market","Cheapest speed-focused aggregator (€15/mo on 3-month plan)","1,000+ sources — competitive coverage","4.8/5 from 263 reviews — strong user satisfaction","AI-powered matching filters relevant listings","Video testimonials from real users (builds trust)","Simple UX — 3-step setup in 60 seconds","Claims 6-week average time to find home","24/7 monitoring"],
+cons:["Dutch language only — excludes expats/internationals","Email only — no push notifications or WhatsApp","No auto-apply","No in-app chat","No application tracking","No scam filtering","No free tier","No mobile app (email-based)","No partner search","Smaller user base (2,847) than Stekkies/RentSlam","No browser extension or contract review"],
+bestFor:"Dutch-speaking renters who want fast, affordable alerts without paying €30/mo. Those who prefer email over push notifications.",
+verdict:"The budget speed option. At €15/mo for 30-second alerts from 1,000+ sources, Woonbot offers the best speed-per-euro ratio. But Dutch-only language and email-only delivery limit its audience."},
+
+{name:"Wooni",color:"#34d399",price:"Free + Pro",priceTier:"Freemium",url:"wooni app",tp:"No rating yet",sources:"Multi-platform",alerts:"Push (Pro)",speed:"Real-time (Pro)",users:"New",founded:"~2024",lang:"EN + NL",
+desc:"A mobile-first aggregator app with a modern, sleek design. Wooni aggregates long-term rental listings into a single feed. Free tier has basic features; Pro unlocks advanced filters, saved searches, and push notifications. Focus on transparency and eliminating shady practices.",
+features:[["Sources","Multi-platform aggregation"],["Alert Speed","Push notifications (Pro tier)"],["Channels","Push (Pro) + Browse (Free)"],["Free Tier","Yes — basic browsing"],["Pro Tier","Advanced filters, saved searches, push"],["Mobile App","iOS + Android (native)"],["Design","Modern, sleek mobile-first UX"],["Transparency","Clear prices, detailed descriptions"],["Property Types","Long-term rentals"],["Filters","Location, type, price, bedrooms, pet-friendly, student"]],
+pros:["Free tier available","Modern mobile-first design (best UX of any aggregator)","Native iOS + Android apps","Advanced filters (pet-friendly, student, shared)","Transparent listing details","Focus on eliminating shady rental practices","Clean, logical layout with easy navigation"],
+cons:["Very new — limited user base","No Trustpilot reviews yet","Source coverage unclear (likely smaller)","Push notifications only on Pro tier","No auto-apply","No in-app chat","No application tracking","No scam scoring","No contract review","No WhatsApp","Limited market presence"],
+bestFor:"Mobile-first renters who value great UX and don't want to pay upfront. Early adopters willing to try a newer, cleaner alternative.",
+verdict:"The prettiest aggregator with the best mobile UX, but unproven. Watch this space — if they grow their source coverage, the free tier + great UX could make it a Huisly competitor."},
+
+{name:"Huurflits",color:"#f472b6",price:"Low cost",priceTier:"€",url:"huurflits.nl",tp:"No rating yet",sources:"Multi-platform",alerts:"Email",speed:"Fast alerts",users:"Small",founded:"Unknown",lang:"NL",
+desc:"A smaller Dutch-language alert service focused on quick listing notifications. Less feature-rich than the major aggregators but offers a low-cost entry point for Dutch speakers who just want basic alerts.",
+features:[["Sources","Multi-platform"],["Alert Speed","Fast email alerts"],["Channels","Email"],["Price","Low cost"],["Language","Dutch"],["Coverage","Netherlands"]],
+pros:["Low cost entry point","Fast email alerts","Simple service — does one thing"],
+cons:["Very limited features","No app","No auto-apply","No scam filtering","No English","Unknown source coverage","No Trustpilot presence","Hard to evaluate vs established competitors"],
+bestFor:"Budget-conscious Dutch speakers who want basic email alerts and nothing more.",
+verdict:"A bare-bones alternative. Hard to recommend over Woonbot (which offers more for similar pricing) or Huisly (which is free)."},
+
+{name:"Huurportaal",color:"#60a5fa",price:"FREE",priceTier:"Free",url:"huurportaal.nl",tp:"No rating yet",sources:"12,800+ listings",alerts:"Email",speed:"Daily updates",users:"Unknown",founded:"Unknown",lang:"EN + NL",
+desc:"A free aggregator claiming 12,800+ listings with direct landlord contacts and daily updates. Positions itself as a comprehensive free portal rather than a speed-focused alert tool.",
+features:[["Sources","12,800+ listings aggregated"],["Alert Speed","Daily updates"],["Channels","Email"],["Price","Free"],["Direct Contacts","Landlord contacts included"],["Language","EN + NL"],["Updates","Daily"]],
+pros:["Free to use","12,800+ listings — large database","Direct landlord contact information","Available in English and Dutch","Daily updates"],
+cons:["Daily updates only — not real-time","No push notifications","No auto-apply","No scam filtering","No mobile app","Unknown source reliability","No application tracking","Not speed-competitive"],
+bestFor:"Renters who want a free, broad listing database for browsing — not for competing in hot markets.",
+verdict:"A free browsing portal, not a competitive alert tool. Good for market research and casual searching, but you'll lose to speed-focused users in competitive cities."},
+
+{name:"NetherlandsHousing",color:"#a78bfa",price:"FREE",priceTier:"Free",url:"netherlandshousing.nl",tp:"No rating yet",sources:"Multi-platform",alerts:"Email",speed:"Standard",users:"Unknown",founded:"Unknown",lang:"EN",
+desc:"A free, English-language aggregator targeting internationals. Allows browsing by city, price, and size. Basic aggregation without advanced features.",
+features:[["Sources","Multi-platform"],["Price","Free"],["Language","English"],["Channels","Email"],["Coverage","Nationwide"],["Filters","City, price, size"]],
+pros:["Free to use","English-language — good for internationals","Basic filtering works","Nationwide coverage"],
+cons:["Unknown source coverage and depth","No push notifications","No auto-apply","No scam filtering","No mobile app","No speed advantage","No Trustpilot reviews","Minimal features compared to competitors"],
+bestFor:"International renters who want a free, English-language starting point for browsing Dutch listings.",
+verdict:"A basic free option for internationals. Use for initial browsing, then switch to a feature-rich aggregator for serious searching."},
+
+{name:"Signaal",color:"#f59e0b",price:"Free + Premium",priceTier:"Freemium",url:"signaal.app",tp:"Positive (app stores)",sources:"Dozens of rental sites",alerts:"Push (real-time)",speed:"Within seconds",users:"Growing",founded:"~2024",lang:"EN + NL",
+desc:"A mobile-first aggregator with real-time push alerts, a wishlist feature, and multiple search trackers. Uniquely, Signaal also sources its own exclusive rental deals for premium users — no other aggregator offers this. Free tier includes essential features; premium unlocks advanced tools and exclusive listings.",
+features:[["Sources","Dozens of rental sites"],["Alert Speed","Within seconds"],["Channels","Push (mobile app)"],["Free Tier","Yes — essentials free"],["Premium","Advanced + exclusive deals"],["Exclusive Listings","Own sourced rental deals (unique!)"],["Multiple Trackers","Per city/budget/type"],["Wishlist","Save and compare favorites"],["Scam Filter","No fake listings claim"],["Mobile App","iOS + Android native"],["Filters","City, price, size, date, type"],["Guides","Built-in housing guides"]],
+pros:["Real-time push alerts — within seconds","Own exclusive rental deals (premium) — unique!","Multiple search trackers simultaneously","Wishlist for comparing listings","Free tier with essential features","Native iOS + Android apps","Built-in housing guides","Clean mobile-first UX","Good for students"],
+cons:["'Dozens' of sources — far fewer than 1,000+","New — limited track record","No Trustpilot page yet","No auto-apply","No in-app chat","No CRM","No contract review","No WhatsApp","Premium pricing unclear","Exclusive deals may be limited by area"],
+bestFor:"Mobile-first renters who want real-time push alerts and unique exclusive deals not on other platforms.",
+verdict:"The exclusive-deals angle is genuinely unique. But source coverage is far behind big players. Best used alongside a broader aggregator."},
+
+{name:"Huurzone",color:"#60a5fa",price:"Free + €19.95/mo",priceTier:"Freemium",url:"huurzone.nl",tp:"~4.5/5 (large volume)",sources:"Large multi-platform",alerts:"Email (daily)",speed:"Daily scans",users:"Established",founded:"Unknown",lang:"NL + EN",
+desc:"A large nationwide aggregator: browse and get alerts free, pay €19.95/mo to contact landlords. Strong Trustpilot ratings. Covers major provinces. Known for breadth and daily updates, but not real-time speed.",
+features:[["Sources","Large aggregated database"],["Alert Speed","Email (daily scans)"],["Channels","Email"],["Free Tier","Browse + alerts free"],["Premium","€19.95/mo for contacts"],["Coverage","NH, ZH, Utrecht, NB, Gelderland"],["Property Types","Apartments, rooms, studios, houses"],["Cities","AMS, ROT, UTR, DH, EHV"],["Search Agent","Automated matching"],["Filters","City, budget, type"]],
+pros:["~4.5/5 Trustpilot with large volume","Free browsing + alerts","€19.95/mo — cheaper than big three","Nationwide coverage","Established track record","Good interface","Search agent alerts"],
+cons:["Contact details behind paywall","Email-only — no push","Daily scans — not real-time","No auto-apply","No chat","No CRM","Stale listings complaints","Billing complaints if not canceled","Redirected links","No mobile app"],
+bestFor:"Budget-conscious renters wanting broad coverage cheaper than Stekkies/Rentbird.",
+verdict:"Solid mid-tier. Cheaper than the big three with good reviews. But daily email speed won't compete in hot markets."},
+];
+
+// ═══════ RENDER ═══════
+let html='';
+
+// Intro
+html+=`<p class="p" style="font-size:15px"><strong style="color:var(--pu)">${A.length} aggregator platforms</strong> analyzed in depth. Every single Dutch rental aggregator — core features, what they're good at, what they're bad at, who they're best for, and the verdict.</p>`;
+
+// Quick comparison table
+html+=`<h2 style="margin-top:30px">Quick Comparison Table</h2>`;
+html+=`<div class="tbl-wrap"><table>
+<thead><tr><th>Aggregator</th><th>Price</th><th>Sources</th><th>Speed</th><th>Push</th><th>Email</th><th>WA</th><th>Auto-Apply</th><th>Chat</th><th>CRM</th><th>Scam</th><th>Free</th><th>★</th></tr></thead><tbody>`;
+A.forEach(a=>{
+const ck=v=>v?CK:NO;
+html+=`<tr>
+<td style="font-weight:700;color:${a.color}">${a.name}</td>
+<td>${a.price.split('(')[0]}</td>
+<td>${a.sources}</td>
+<td>${a.speed}</td>
+<td>${ck(a.alerts.includes('Push'))}</td>
+<td>${ck(a.alerts.includes('Email')||a.alerts.includes('email'))}</td>
+<td>${ck(a.alerts.includes('WhatsApp'))}</td>
+<td>${ck(a.features.some(f=>f[0]==='Auto-Apply'&&f[1].startsWith('Yes')))}</td>
+<td>${ck(a.features.some(f=>f[0]==='In-App Chat'&&f[1].startsWith('Yes')))}</td>
+<td>${ck(a.features.some(f=>f[0]==='Application CRM'))}</td>
+<td>${ck(a.pros.some(p=>p.toLowerCase().includes('scam')))}</td>
+<td>${ck(a.priceTier==='Free'||a.priceTier==='Freemium')}</td>
+<td>${a.tp.split('/')[0]||'—'}</td>
+</tr>`;
+});
+html+=`</tbody></table></div>`;
+
+// Individual cards
+html+=`<h2 style="margin-top:40px">Detailed Analysis — Every Aggregator</h2>`;
+A.forEach(a=>{
+html+=`<div class="agg" style="border-top:3px solid ${a.color}">`;
+// Header
+html+=`<div class="agg-hdr"><div><h2 style="color:${a.color}">${a.name}</h2><div class="tp">★ ${a.tp}</div></div><div style="text-align:right"><div style="font-size:18px;font-weight:800;color:var(--t)">${a.price.split('(')[0]}</div>${a.price.includes('(')?`<div style="font-size:11px;color:var(--t3)">${a.price.split('(')[1].replace(')','')}</div>`:''}</div></div>`;
+// Meta
+html+=`<div class="agg-meta"><span>🌐 ${a.url}</span><span>📡 ${a.sources}</span><span>⚡ ${a.speed}</span><span>🗣 ${a.lang}</span>${a.users?`<span>👥 ${a.users}</span>`:''}</div>`;
+// Description
+html+=`<div class="agg-desc">${a.desc}</div>`;
+// Features grid
+html+=`<h3>Core Features</h3><div class="features-grid">`;
+a.features.forEach(([k,v])=>{html+=`<div class="feat"><div class="fl">${k}</div><div class="fv">${v}</div></div>`});
+html+=`</div>`;
+// Pros & Cons
+html+=`<div class="pros-cons"><div class="pros"><h4>What They're Good At (${a.pros.length})</h4><ul>${a.pros.map(p=>`<li>${p}</li>`).join('')}</ul></div><div class="cons"><h4>What They're Bad At (${a.cons.length})</h4><ul>${a.cons.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`;
+// Best for
+html+=`<div class="best-for"><strong>Best for: </strong>${a.bestFor}</div>`;
+// Verdict
+html+=`<div class="verdict"><div class="vl">Verdict</div><div class="vt">${a.verdict}</div></div>`;
+html+=`</div>`;
+});
+
+document.getElementById('app').innerHTML=html;
+</script>
+</body>
+</html>
