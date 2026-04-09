@@ -17,7 +17,7 @@ const SECTIONS = [
   { id:"roadmap", num:"13", title:"Implementation Roadmap", icon:"🚀", sub:"Week-by-week plan" },
 ];
 
-/* ───────── REUSABLE COMPONENTS ───────── */
+/* ───────── REUSABLE COMPONENTS ──────--─── */
 function P({children,style:s}){return <p style={{color:"#b0b8c8",fontSize:14,lineHeight:1.8,margin:"0 0 14px",...s}}>{children}</p>}
 function H3({children}){return <h3 style={{color:"#e5e7eb",fontSize:17,fontWeight:800,margin:"28px 0 14px"}}>{children}</h3>}
 function H4({children,color}){return <h4 style={{color:color||"#d1d5db",fontSize:15,fontWeight:700,margin:"20px 0 8px"}}>{children}</h4>}
