@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-/* ───────── SECTION CONFIG ───────── */
+/* ───────── SECTION CONFIG ────--───── */
 const SECTIONS = [
   { id:"landscape", num:"01", title:"Market Landscape", icon:"🗺️", sub:"20+ platforms mapped" },
   { id:"features", num:"02", title:"Feature Matrix", icon:"⚔️", sub:"Side-by-side comparison" },
